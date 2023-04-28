@@ -1,6 +1,7 @@
 package finalfantasy.api.models;
 
 import finalfantasy.api.enums.GameEdition;
+import finalfantasy.api.enums.Gender;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -17,7 +18,7 @@ public class Protagonist {
     @GenericGenerator( name = "native", strategy = "native")
     private long id;
     private String name;
-    private String gender;
+    private Gender gender;
     private String job;
     @Column(length = 1000)
     private String description;
@@ -27,7 +28,7 @@ public class Protagonist {
 
     public Protagonist(){}
 
-    public Protagonist(String name, String gender, String job, String description, String race, GameEdition origin, String imageUrl) {
+    public Protagonist(String name, Gender gender, String job, String description, String race, GameEdition origin, String imageUrl) {
         this.name = name;
         this.gender = gender;
         this.job = job;
@@ -50,4 +51,5 @@ public class Protagonist {
                 ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
+
 }
