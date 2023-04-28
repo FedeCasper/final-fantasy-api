@@ -10,18 +10,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Getter
+@Setter
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    @Getter
+
     private long id;
-    @Getter @Setter
     private String title;
+    private String releaseDate;
+    private String image;
+    private String plataform;
+    private GameDescription story;
 
     public Game (){};
 
-    public Game(String title) {
+    public Game(String title, String releaseDate, String image, String plataform, GameDescription story) {
         this.title = title;
+        this.releaseDate = releaseDate;
+        this.image = image;
+        this.plataform = plataform;
+        this.story = story;
     }
 }
