@@ -1,13 +1,11 @@
 package finalfantasy.api.models;
 
+import finalfantasy.api.enums.GameEdition;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Protagonist {
@@ -24,21 +22,25 @@ public class Protagonist {
     @Getter @Setter
     private String job;
     @Getter @Setter
+    @Column(length = 1000)
     private String description;
     @Getter @Setter
     private String race;
     @Getter @Setter
-    private String origin;
+    private GameEdition origin;
+    @Getter @Setter
+    private String imageUrl;
 
     public Protagonist(){}
 
-    public Protagonist(String name, String gender, String job, String description, String race, String origin) {
+    public Protagonist(String name, String gender, String job, String description, String race, GameEdition origin, String imageUrl) {
         this.name = name;
         this.gender = gender;
         this.job = job;
         this.description = description;
         this.race = race;
         this.origin = origin;
+        this.imageUrl = imageUrl;
     }
 
 
