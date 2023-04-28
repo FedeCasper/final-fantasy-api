@@ -8,27 +8,21 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 public class Protagonist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator( name = "native", strategy = "native")
-    @Getter
     private long id;
-    @Getter @Setter
     private String name;
-    @Getter @Setter
     private String gender;
-    @Getter @Setter
     private String job;
-    @Getter @Setter
     @Column(length = 1000)
     private String description;
-    @Getter @Setter
     private String race;
-    @Getter @Setter
     private GameEdition origin;
-    @Getter @Setter
     private String imageUrl;
 
     public Protagonist(){}
@@ -43,5 +37,17 @@ public class Protagonist {
         this.imageUrl = imageUrl;
     }
 
-
+    @Override
+    public String toString() {
+        return "Protagonist{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", job='" + job + '\'' +
+                ", description='" + description + '\'' +
+                ", race='" + race + '\'' +
+                ", origin=" + origin +
+                ", imageUrl='" + imageUrl + '\'' +
+                '}';
+    }
 }

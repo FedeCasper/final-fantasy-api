@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class ApiApplication {
 
@@ -23,8 +25,6 @@ public class ApiApplication {
 			System.out.println("------------------");
 			System.out.println("Magic has started!");
 			System.out.println("------------------");
-
-
 
 			Protagonist Squall = new Protagonist("Squall Leonheart", "Male", "Soldier", ProtagonistDescription.SQUALL, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/d/d2/Ff8-squall.jpg/revision/latest?cb=20100603174959");
 			Protagonist Rinoa = new Protagonist("Rinoa Heartilly","Female","Strategist",ProtagonistDescription.RINOA,"Human",GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/0/09/Ff8-rinoa.jpg/revision/latest?cb=20100603174143");
