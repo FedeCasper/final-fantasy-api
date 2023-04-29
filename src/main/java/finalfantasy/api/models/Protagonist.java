@@ -1,5 +1,6 @@
 package finalfantasy.api.models;
 
+import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.enums.Gender;
 import lombok.Getter;
@@ -7,6 +8,8 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -26,13 +29,12 @@ public class Protagonist {
     private GameEdition origin;
     private String imageUrl;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "game_id")
-    private Game game;
+    @OneToMany(mappedBy = "protagonist", fetch = FetchType.EAGER)
+    private Set<GameProtagonist> gameProtagonists = new HashSet<>();
 
     public Protagonist(){}
 
-    public Protagonist(String name, Gender gender, String job, String description, String race, GameEdition origin, String imageUrl, Game game) {
+    public Protagonist(String name, Gender gender, String job, String description, String race, GameEdition origin, String imageUrl) {
         this.name = name;
         this.gender = gender;
         this.job = job;
@@ -40,7 +42,6 @@ public class Protagonist {
         this.race = race;
         this.origin = origin;
         this.imageUrl = imageUrl;
-        this.game = game;
     }
 
     @Override

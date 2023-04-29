@@ -1,14 +1,12 @@
 package finalfantasy.api.models;
 
+import finalfantasy.api.IntermediateTables.GameProtagonist;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Getter
@@ -27,7 +25,7 @@ public class Game {
     private String story;
 
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
-    private List<Protagonist> protagonists;
+    private Set<GameProtagonist> gameProtagonists = new HashSet<>();
 
     public Game (){};
 
@@ -39,16 +37,5 @@ public class Game {
         this.story = story;
     }
 
-    @Override
-    public String toString() {
-        return "Game{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", releaseDate='" + releaseDate + '\'' +
-                ", image='" + image + '\'' +
-                ", plataform='" + plataform + '\'' +
-                ", story='" + story + '\'' +
-                ", protagonists=" + protagonists +
-                '}';
-    }
+
 }
