@@ -27,18 +27,16 @@ public class Game {
     private String story;
 
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
-    @OrderColumn
     private List<Protagonist> protagonists;
 
     public Game (){};
 
-    public Game(String title, String releaseDate, String image, String plataform, String story, List<Protagonist> protagonists) {
+    public Game(String title, String releaseDate, String image, String plataform, String story) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.image = image;
         this.plataform = plataform;
         this.story = story;
-        this.protagonists = protagonists;
     }
 
     @Override
@@ -50,7 +48,7 @@ public class Game {
                 ", image='" + image + '\'' +
                 ", plataform='" + plataform + '\'' +
                 ", story='" + story + '\'' +
-                ", protagonists=" + Arrays.toString(protagonists) +
+                ", protagonists=" + protagonists +
                 '}';
     }
 }

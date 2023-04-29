@@ -32,7 +32,7 @@ public class Protagonist {
 
     public Protagonist(){}
 
-    public Protagonist(String name, Gender gender, String job, String description, String race, GameEdition origin, String imageUrl) {
+    public Protagonist(String name, Gender gender, String job, String description, String race, GameEdition origin, String imageUrl, Game game) {
         this.name = name;
         this.gender = gender;
         this.job = job;
@@ -40,6 +40,7 @@ public class Protagonist {
         this.race = race;
         this.origin = origin;
         this.imageUrl = imageUrl;
+        this.game = game;
     }
 
     @Override
