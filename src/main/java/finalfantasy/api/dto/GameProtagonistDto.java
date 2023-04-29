@@ -7,20 +7,20 @@ import lombok.Getter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 public class GameProtagonistDto {
 
     private long id;
-    private Game game;
-    private Protagonist protagonist;
 
-    public GameProtagonistDto() {
-    }
+    private ProtagonistDto protagonistDto;
+
+    public GameProtagonistDto() {}
 
     public GameProtagonistDto(GameProtagonist gameProtagonist) {
-        this.game = gameProtagonist.getGame();
-        this.protagonist = gameProtagonist.getProtagonist();
+        this.protagonistDto =  new ProtagonistDto(gameProtagonist.getProtagonist());
     }
 
 }

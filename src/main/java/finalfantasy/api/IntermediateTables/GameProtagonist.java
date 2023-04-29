@@ -33,4 +33,28 @@ public class GameProtagonist {
         this.game = game;
         this.protagonist = protagonist;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Protagonist getProtagonist() {
+        return protagonist;
+    }
+
+    public void setProtagonist(Protagonist protagonist) {
+        this.protagonist = protagonist;
+    }
 }

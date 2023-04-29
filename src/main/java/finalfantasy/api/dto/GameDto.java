@@ -5,6 +5,7 @@ import lombok.Getter;
 
 import javax.persistence.Column;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Getter
@@ -19,6 +20,7 @@ public class GameDto {
     private String story;
 
     private List<ProtagonistDto> protagonistsDto;
+    private Set<GameProtagonistDto> gameProtagonistDtoSet;
 
     public GameDto (){};
 
@@ -28,6 +30,7 @@ public class GameDto {
         this.image = game.getImage();
         this.plataform = game.getPlataform();
         this.story = game.getStory();
+        this.gameProtagonistDtoSet = game.getGameProtagonists().stream().map( gameProtagonist -> new GameProtagonistDto(gameProtagonist)).collect(Collectors.toSet());
     }
 
 }

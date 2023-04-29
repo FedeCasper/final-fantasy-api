@@ -1,5 +1,6 @@
 package finalfantasy.api.dto;
 
+import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.enums.Gender;
 import finalfantasy.api.models.Game;
@@ -8,6 +9,8 @@ import lombok.Getter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 public class ProtagonistDto {
@@ -21,6 +24,8 @@ public class ProtagonistDto {
     private String race;
     private GameEdition origin;
     private String imageUrl;
+
+    private Set<GameProtagonist> gameProtagonists = new HashSet<>();
 
     public ProtagonistDto(){}
 

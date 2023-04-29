@@ -42,7 +42,9 @@ public class Protagonist {
         this.race = race;
         this.origin = origin;
         this.imageUrl = imageUrl;
+        this.gameProtagonists = null;
     }
+
 
     @Override
     public String toString() {
