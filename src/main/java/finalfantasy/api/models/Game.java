@@ -4,10 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -22,15 +23,34 @@ public class Game {
     private String releaseDate;
     private String image;
     private String plataform;
-    private GameDescription story;
+    @Column(length = 1000)
+    private String story;
+
+    @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
+    @OrderColumn
+    private List<Protagonist> protagonists;
 
     public Game (){};
 
-    public Game(String title, String releaseDate, String image, String plataform, GameDescription story) {
+    public Game(String title, String releaseDate, String image, String plataform, String story, List<Protagonist> protagonists) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.image = image;
         this.plataform = plataform;
         this.story = story;
+        this.protagonists = protagonists;
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", image='" + image + '\'' +
+                ", plataform='" + plataform + '\'' +
+                ", story='" + story + '\'' +
+                ", protagonists=" + Arrays.toString(protagonists) +
+                '}';
     }
 }

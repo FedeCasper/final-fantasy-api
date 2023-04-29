@@ -26,6 +26,10 @@ public class Protagonist {
     private GameEdition origin;
     private String imageUrl;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "game_id")
+    private Game game;
+
     public Protagonist(){}
 
     public Protagonist(String name, Gender gender, String job, String description, String race, GameEdition origin, String imageUrl) {

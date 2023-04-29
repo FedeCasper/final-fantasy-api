@@ -2,14 +2,18 @@ package finalfantasy.api;
 
 import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.enums.Gender;
+import finalfantasy.api.models.Game;
+import finalfantasy.api.models.GameDescription;
 import finalfantasy.api.models.Protagonist;
 import finalfantasy.api.models.ProtagonistDescription;
+import finalfantasy.api.repositories.GameRepository;
 import finalfantasy.api.repositories.ProtagonistRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -20,12 +24,16 @@ public class ApiApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(ProtagonistRepository protagonistRepository){
+	public CommandLineRunner initData(ProtagonistRepository protagonistRepository, GameRepository gameRepository){
 		return (args) -> {
 
 			System.out.println("------------------");
 			System.out.println("Magic has started!");
 			System.out.println("------------------");
+
+
+
+
 
 			// FINAL FANTASY 7 -----------------------//
 			Protagonist Cloud = new Protagonist("Cloud Strife", Gender.MALE, "Ex Soldier", ProtagonistDescription.CLOUD, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/e/ef/Cloud_Strife_from_FFVII_Remake_bust_render.png");
@@ -45,12 +53,20 @@ public class ApiApplication {
 			Protagonist Adel = new Protagonist("Adel", Gender.FEMALE, "Sorceress", ProtagonistDescription.ADEL, "Human", GameEdition.FINAL_FANTASY_VIII, "https://vignette.wikia.nocookie.net/finalfantasy/images/a/af/Adel2.jpg");
 			Protagonist Ultimecia = new Protagonist("Ultimecia", Gender.FEMALE, "Sorceress", ProtagonistDescription.ULTIMECIA, "Human", GameEdition.FINAL_FANTASY_VIII, "https://www.heypoorplayer.com/wp-content/uploads/2017/08/Face_of_Sorceress_Ultimecia.jpg");
 
-			Protagonist[] arrayProtagonist = {Squall, Rinoa, Irvine, Zell, Selphie, Quistis, Seifer, Edea, Laguna, Kiros, Ward, Adel, Ultimecia};
+			List<Protagonist> protagonists = new ArrayList<>();
+			protagonists.add(Squall);
+			protagonists.add(Zell);
+			protagonists.add(Seifer);
 
 			for(int i = 0 ; i < arrayProtagonist.length ; i++){
 				protagonistRepository.save(arrayProtagonist[i]);
 			}
 
+			// FINAL FANTASY 7 -----------------------//
+			Game finalFantasyVII = new Game("Final Fantasy VII", "10/2/23", "www.dsd.sds", "Playstation", GameDescription.FF7, arrayProtagonist );
+			gameRepository.save(finalFantasyVII);
+
+			System.out.println(finalFantasyVII);
 		};
 
 	}
