@@ -1,5 +1,6 @@
 package finalfantasy.api.models;
 
+import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.enums.SummonType;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,12 +21,12 @@ public class Summon {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
     private String name;
-    private String origin;
+    private GameEdition origin;
     private SummonType type;
 
     public Summon() {}
 
-    public Summon(String name, String origin, SummonType type) {
+    public Summon(String name, GameEdition origin, SummonType type) {
         this.name = name;
         this.origin = origin;
         this.type = type;

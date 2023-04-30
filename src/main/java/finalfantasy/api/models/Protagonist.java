@@ -21,6 +21,7 @@ public class Protagonist {
     @GenericGenerator( name = "native", strategy = "native")
     private long id;
     private String name;
+    private String lastName;
     private Gender gender;
     private String job;
     @Column(length = 1000)
@@ -34,8 +35,9 @@ public class Protagonist {
 
     public Protagonist(){}
 
-    public Protagonist(String name, Gender gender, String job, String description, String race, GameEdition origin, String imageUrl) {
+    public Protagonist(String name, String lastName, Gender gender, String job, String description, String race, GameEdition origin, String imageUrl) {
         this.name = name;
+        this.lastName = lastName;
         this.gender = gender;
         this.job = job;
         this.description = description;
