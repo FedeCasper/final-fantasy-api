@@ -21,7 +21,7 @@ public class Summon {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
     private String name;
-    private GameEdition origin;
+    @Enumerated(EnumType.STRING)
     private SummonType type;
 
     @OneToMany(mappedBy = "summon" , fetch = FetchType.EAGER)
@@ -29,9 +29,8 @@ public class Summon {
 
     public Summon() {}
 
-    public Summon(String name, GameEdition origin, SummonType type) {
+    public Summon(String name, SummonType type) {
         this.name = name;
-        this.origin = origin;
         this.type = type;
     }
 }

@@ -22,11 +22,13 @@ public class Protagonist {
     private long id;
     private String name;
     private String lastName;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private String job;
     @Column(length = 1000)
     private String description;
     private String race;
+    @Enumerated(EnumType.STRING)
     private GameEdition origin;
     private String imageUrl;
 

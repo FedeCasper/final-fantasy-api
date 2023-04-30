@@ -2,9 +2,7 @@ package finalfantasy.api;
 
 import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.IntermediateTables.GameSummon;
-import finalfantasy.api.enums.GameEdition;
-import finalfantasy.api.enums.Gender;
-import finalfantasy.api.enums.SummonType;
+import finalfantasy.api.enums.*;
 import finalfantasy.api.models.*;
 import finalfantasy.api.repositories.*;
 import org.springframework.boot.CommandLineRunner;
@@ -12,7 +10,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,21 +32,21 @@ public class ApiApplication {
 
 
 	// GAMES -----------------------//
-			Game finalFantasyI = new Game("Final Fantasy I", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyII = new Game("Final Fantasy II", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyIII = new Game("Final Fantasy III", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyIV = new Game("Final Fantasy IV", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyV = new Game("Final Fantasy V", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyVI = new Game("Final Fantasy VI", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyVII = new Game("Final Fantasy VII", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyVIII = new Game("Final Fantasy VIII", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8 );
-			Game finalFantasyIX = new Game("Final Fantasy IX", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyX = new Game("Final Fantasy X", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyX2 = new Game("Final Fantasy X-2", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyXII = new Game("Final Fantasy XII", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyXIII = new Game("Final Fantasy XIII", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyXV = new Game("Final Fantasy XV", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8);
-			Game finalFantasyDissidia = new Game("Final Fantasy Dissidia", "1/2/2017", "https://static.wikia.nocookie.net/finalfantasy/images/b/b6/Dissidia_Logo.jpg", "Playstation", GameDescription.FF_DISSIDIA);
+			Game finalFantasyI = new Game("Final Fantasy I", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyII = new Game("Final Fantasy II", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyIII = new Game("Final Fantasy III", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyIV = new Game("Final Fantasy IV", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyV = new Game("Final Fantasy V", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyVI = new Game("Final Fantasy VI", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyVII = new Game("Final Fantasy VII", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyVIII = new Game("Final Fantasy VIII", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyIX = new Game("Final Fantasy IX", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyX = new Game("Final Fantasy X", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyX2 = new Game("Final Fantasy X-2", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyXII = new Game("Final Fantasy XII", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyXIII = new Game("Final Fantasy XIII", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyXV = new Game("Final Fantasy XV", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", "Playstation", GameDescription.FF_8_DESCRIPTION);
+			Game finalFantasyDissidia = new Game("Final Fantasy Dissidia", "1/2/2017", "https://static.wikia.nocookie.net/finalfantasy/images/b/b6/Dissidia_Logo.jpg", "Playstation", GameDescription.FF_7_DESSIDIA);
 
 			List<Game> games = Arrays.asList(finalFantasyI, finalFantasyII, finalFantasyIII, finalFantasyIV, finalFantasyV, finalFantasyVI, finalFantasyVII, finalFantasyVIII, finalFantasyIX, finalFantasyX, finalFantasyX2, finalFantasyXII, finalFantasyXIII, finalFantasyXV, finalFantasyDissidia);
 
@@ -58,8 +55,28 @@ public class ApiApplication {
 			}
 
 	// SUMMON - FINAL FANTASY 8 -----------------------//
-			Summon ifrit = new Summon("Ifrit", GameEdition.FINAL_FANTASY_VIII, SummonType.FIRE);
-			summonRepository.save(ifrit);
+			Summon quetzacotl = new Summon("quetzacotl", SummonType.THUNDER);
+			Summon brothers = new Summon("Brothers", SummonType.EARTH);
+			Summon diablos = new Summon("Diablos", SummonType.GRAVITY);
+			Summon carbuncle = new Summon("Carbuncle", SummonType.NON_ELEMENTAL);
+			Summon leviathan = new Summon("Leviathan", SummonType.WATER);
+			Summon pandemona = new Summon("Pandemona", SummonType.WIND);
+			Summon cerberus = new Summon("Cerberus", SummonType.NON_ELEMENTAL);
+			Summon alexander = new Summon("Alexander", SummonType.HOLY);
+			Summon doomtrain = new Summon("Doomtrain", SummonType.POISON);
+			Summon bahamut = new Summon("Bahamut", SummonType.NON_ELEMENTAL);
+			Summon cactuar = new Summon("Cactuar", SummonType.NON_ELEMENTAL);
+			Summon tonberry = new Summon("Tonberry", SummonType.NON_ELEMENTAL);
+			Summon eden = new Summon("Eden", SummonType.NON_ELEMENTAL);
+			Summon ifrit = new Summon("Ifrit", SummonType.FIRE);
+			Summon shiva = new Summon("Shiva", SummonType.ICE);
+			Summon siren = new Summon("Siren", SummonType.NON_ELEMENTAL);
+
+			List<Summon> summonsList = Arrays.asList(ifrit,quetzacotl, brothers, diablos, carbuncle, leviathan, pandemona, cerberus, alexander, doomtrain, bahamut, cactuar, tonberry, eden, shiva, siren);
+
+			for(Summon summon : summonsList){
+				summonRepository.save(summon);
+			}
 
 	// PROTAGONIST - FINAL FANTASY 7 -----------------------//
 			Protagonist Cloud = new Protagonist("Cloud", "Strife", Gender.MALE, "Ex Soldier", ProtagonistDescription.CLOUD, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/e/ef/Cloud_Strife_from_FFVII_Remake_bust_render.png");
@@ -99,9 +116,17 @@ public class ApiApplication {
 			}
 
 	// GAME-SUMMON -----------------------//
-			GameSummon ifritFF8 = new GameSummon(finalFantasyVIII, ifrit);
+			List<GameSummon> gameSummonsFF8 = Arrays.asList(
+				new GameSummon(finalFantasyII, ifrit, SummonImage.IFRIT_IMG_FF2),
+				new GameSummon(finalFantasyIII, ifrit, SummonImage.IFRIT_IMG_FF3),
+				new GameSummon(finalFantasyIV, ifrit, SummonImage.IFRIT_IMG_FF4),
+				new GameSummon(finalFantasyV, ifrit, SummonImage.IFRIT_IMG_FF5),
+				new GameSummon(finalFantasyVI, ifrit, SummonImage.IFRIT_IMG_FF6),
+				new GameSummon(finalFantasyVII, ifrit, SummonImage.IFRIT_IMG_FF7),
+				new GameSummon(finalFantasyVIII, ifrit, SummonImage.IFRIT_IMG_FF8),
+				new GameSummon(finalFantasyIX, ifrit, SummonImage.IFRIT_IMG_FF9)
+			);
 
-			List<GameSummon> gameSummonsFF8 = Arrays.asList(ifritFF8);
 
 			for (GameSummon gameSummon : gameSummonsFF8){
 				 gameSummonRepository.save(gameSummon);
