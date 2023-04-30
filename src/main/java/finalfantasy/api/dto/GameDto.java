@@ -1,5 +1,6 @@
 package finalfantasy.api.dto;
 
+import finalfantasy.api.IntermediateTables.GameSummon;
 import finalfantasy.api.models.Game;
 import lombok.Getter;
 
@@ -21,6 +22,7 @@ public class GameDto {
 
     private List<ProtagonistDto> protagonistsDto;
     private Set<GameProtagonistDto> gameProtagonistDtoSet;
+    private Set<GameSummonDto> gameSummonDtoSet;
 
     public GameDto (){};
 
@@ -31,6 +33,7 @@ public class GameDto {
         this.plataform = game.getPlataform();
         this.story = game.getStory();
         this.gameProtagonistDtoSet = game.getGameProtagonists().stream().map( gameProtagonist -> new GameProtagonistDto(gameProtagonist)).collect(Collectors.toSet());
+        this.gameSummonDtoSet = game.getGameSummons().stream().map(gameSummon -> new GameSummonDto(gameSummon)).collect(Collectors.toSet());
     }
 
 }

@@ -1,6 +1,7 @@
 package finalfantasy.api.models;
 
 import finalfantasy.api.IntermediateTables.GameProtagonist;
+import finalfantasy.api.IntermediateTables.GameSummon;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -26,6 +27,9 @@ public class Game {
 
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     private Set<GameProtagonist> gameProtagonists = new HashSet<>();
+
+    @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
+    private Set<GameSummon> gameSummons = new HashSet<>();
 
     public Game (){};
 

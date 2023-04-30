@@ -1,13 +1,12 @@
 package finalfantasy.api;
 
 import finalfantasy.api.IntermediateTables.GameProtagonist;
+import finalfantasy.api.IntermediateTables.GameSummon;
 import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.enums.Gender;
 import finalfantasy.api.enums.SummonType;
 import finalfantasy.api.models.*;
-import finalfantasy.api.repositories.GameProtagonistRepository;
-import finalfantasy.api.repositories.GameRepository;
-import finalfantasy.api.repositories.ProtagonistRepository;
+import finalfantasy.api.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,7 +24,9 @@ public class ApiApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(ProtagonistRepository protagonistRepository, GameRepository gameRepository, GameProtagonistRepository gameProtagonistRepository){
+	public CommandLineRunner initData(ProtagonistRepository protagonistRepository, GameRepository gameRepository,
+									  GameProtagonistRepository gameProtagonistRepository, GameSummonRepository gameSummonRepository,
+									  SummonRepository summonRepository){
 		return (args) -> {
 
 			System.out.println("------------------");
@@ -58,6 +59,7 @@ public class ApiApplication {
 
 	// SUMMON - FINAL FANTASY 8 -----------------------//
 			Summon ifrit = new Summon("Ifrit", GameEdition.FINAL_FANTASY_VIII, SummonType.FIRE);
+			summonRepository.save(ifrit);
 
 	// PROTAGONIST - FINAL FANTASY 7 -----------------------//
 			Protagonist Cloud = new Protagonist("Cloud", "Strife", Gender.MALE, "Ex Soldier", ProtagonistDescription.CLOUD, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/e/ef/Cloud_Strife_from_FFVII_Remake_bust_render.png");
@@ -94,6 +96,15 @@ public class ApiApplication {
 
 			for (GameProtagonist gameProtagonist : gameProtagonistsDissidia){
 				gameProtagonistRepository.save(gameProtagonist);
+			}
+
+	// GAME-SUMMON -----------------------//
+			GameSummon ifritFF8 = new GameSummon(finalFantasyVIII, ifrit);
+
+			List<GameSummon> gameSummonsFF8 = Arrays.asList(ifritFF8);
+
+			for (GameSummon gameSummon : gameSummonsFF8){
+				 gameSummonRepository.save(gameSummon);
 			}
 
 		};
