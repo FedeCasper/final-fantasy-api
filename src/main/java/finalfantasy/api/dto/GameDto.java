@@ -24,6 +24,7 @@ public class GameDto {
     private List<ProtagonistDto> protagonistsDto;
     private Set<GameProtagonistDto> gameProtagonistDtoSet;
     private Set<GameSummonDto> gameSummonDtoSet;
+    private Set<LocationDto> locationDtoSet;
 
     public GameDto (){};
 
@@ -35,6 +36,7 @@ public class GameDto {
         this.description = game.getDescription();
         this.gameProtagonistDtoSet = game.getGameProtagonists().stream().map( gameProtagonist -> new GameProtagonistDto(gameProtagonist)).collect(Collectors.toSet());
         this.gameSummonDtoSet = game.getGameSummons().stream().map(gameSummon -> new GameSummonDto(gameSummon)).collect(Collectors.toSet());
+        this.locationDtoSet = game.getLocations().stream().map(location -> new LocationDto(location)).collect(Collectors.toSet());
     }
 
 }

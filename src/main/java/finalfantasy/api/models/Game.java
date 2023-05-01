@@ -32,6 +32,9 @@ public class Game {
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     private Set<GameSummon> gameSummons = new HashSet<>();
 
+    @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
+    private Set<Location> locations = new HashSet<>();
+
     public Game (){};
 
     public Game(String title, String releaseDate, String image, String plataform, GameDescription description) {

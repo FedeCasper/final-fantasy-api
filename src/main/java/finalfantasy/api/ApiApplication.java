@@ -11,7 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootApplication
 public class ApiApplication {
@@ -23,7 +25,7 @@ public class ApiApplication {
 	@Bean
 	public CommandLineRunner initData(ProtagonistRepository protagonistRepository, GameRepository gameRepository,
 									  GameProtagonistRepository gameProtagonistRepository, GameSummonRepository gameSummonRepository,
-									  SummonRepository summonRepository){
+									  SummonRepository summonRepository, LocationRepository locationRepository){
 		return (args) -> {
 
 			System.out.println("------------------");
@@ -130,6 +132,21 @@ public class ApiApplication {
 
 			for (GameSummon gameSummon : gameSummonsFF8){
 				 gameSummonRepository.save(gameSummon);
+			}
+
+	// LOCATIONS -----------------------//
+
+			Set<LocationImage> locationImageSet = new HashSet<>();
+			locationImageSet.add(LocationImage.FIRE_CAVERN_IMG);
+			locationImageSet.add(LocationImage.FIRE_CAVERN_MAP);
+
+
+			List<Location> locationListFF8 = Arrays.asList(
+					new Location("Fire Cavern", GameEdition.FINAL_FANTASY_VIII, LocationDescription.FIRE_CAVERN, locationImageSet , finalFantasyVIII )
+			);
+
+			for (Location location : locationListFF8){
+				locationRepository.save(location);
 			}
 
 		};
