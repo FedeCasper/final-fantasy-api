@@ -2,6 +2,7 @@ package finalfantasy.api.dto;
 
 import finalfantasy.api.IntermediateTables.GameSummon;
 import finalfantasy.api.enums.GameDescription;
+import finalfantasy.api.enums.Plataform;
 import finalfantasy.api.models.Game;
 import lombok.Getter;
 
@@ -17,11 +18,10 @@ public class GameDto {
     private String title;
     private String releaseDate;
     private String image;
-    private String plataform;
+    private Plataform plataform;
     @Column(length = 1000)
     private GameDescription description;
 
-    private List<ProtagonistDto> protagonistsDto;
     private Set<GameProtagonistDto> gameProtagonistDtoSet;
     private Set<GameSummonDto> gameSummonDtoSet;
     private Set<LocationDto> locationDtoSet;

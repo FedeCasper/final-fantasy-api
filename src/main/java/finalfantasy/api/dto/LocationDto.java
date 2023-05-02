@@ -21,7 +21,6 @@ public class LocationDto {
     private GameEdition origin;
     private LocationDescription description;
     private Set<LocationImage> locationImageSet;
-    private Game game;
 
     public LocationDto() {
     }

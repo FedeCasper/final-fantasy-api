@@ -1,8 +1,10 @@
 package finalfantasy.api.models;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.enums.Gender;
+import finalfantasy.api.enums.ProtagonistDescription;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -26,7 +28,7 @@ public class Protagonist {
     private Gender gender;
     private String job;
     @Column(length = 1000)
-    private String description;
+    private ProtagonistDescription description;
     private String race;
     @Enumerated(EnumType.STRING)
     private GameEdition origin;
@@ -37,7 +39,7 @@ public class Protagonist {
 
     public Protagonist(){}
 
-    public Protagonist(String name, String lastName, Gender gender, String job, String description, String race, GameEdition origin, String imageUrl) {
+    public Protagonist(String name, String lastName, Gender gender, String job, ProtagonistDescription description, String race, GameEdition origin, String imageUrl) {
         this.name = name;
         this.lastName = lastName;
         this.gender = gender;
@@ -49,19 +51,5 @@ public class Protagonist {
         this.gameProtagonists = null;
     }
 
-
-    @Override
-    public String toString() {
-        return "Protagonist{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", job='" + job + '\'' +
-                ", description='" + description + '\'' +
-                ", race='" + race + '\'' +
-                ", origin=" + origin +
-                ", imageUrl='" + imageUrl + '\'' +
-                '}';
-    }
 
 }

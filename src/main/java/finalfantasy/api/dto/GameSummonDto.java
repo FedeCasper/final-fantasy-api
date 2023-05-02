@@ -5,14 +5,12 @@ import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.enums.SummonType;
 import lombok.Getter;
 
-
 @Getter
 public class GameSummonDto {
 
     private long id;
     private String name;
     private SummonType type;
-    private GameSummon gameSummon;
 
     public GameSummonDto() {
     }
