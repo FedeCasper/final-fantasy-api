@@ -7,8 +7,8 @@ import java.util.List;
 public enum AvailableProtagonists {
 
     EMPTY(new ArrayList<String>(Arrays.asList("", ""))),
-    FF7(new ArrayList<String>(Arrays.asList("Cloud", "Tifa"))),
-    FF8(new ArrayList<String>(Arrays.asList("Squall", "Rinoa", "Zell", "Irvine", "Edea", "Selphie", "Quistis", "Seifer", "Laguna", "Kiros", "Ward", "Adel", "Ultimecia"))),
+    FF7(new ArrayList<String>(Arrays.asList("Cloud", "Tifa", "Aerith", "Vincent", "Yuffie", "Cid", "Sephiroth", "Barret", "Red XIII"))),
+    FF8(new ArrayList<String>(Arrays.asList("Squall", "Rinoa", "Zell", "Irvine", "Edea", "Selphie", "Quistis", "Seifer", "Laguna", "Kiros", "Ward", "Adel", "Ultimecia", "Cid"))),
     ;
 
     private ArrayList<String> availableProtagonistList;

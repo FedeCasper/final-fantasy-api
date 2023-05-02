@@ -106,6 +106,12 @@ public class ApiApplication {
 				new Protagonist("Cloud", "Strife", Gender.MALE, "Ex Soldier", ProtagonistDescription.CLOUD, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/e/ef/Cloud_Strife_from_FFVII_Remake_bust_render.png"),
 				new Protagonist("Tifa", "Lockhart", Gender.FEMALE, "Avalanche Member", ProtagonistDescription.TIFA, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/9/9c/Tifa_Lockhart_from_FFVII_Remake_promo_render.png"),
 				new Protagonist("Barret", "Wallace", Gender.MALE, "Leader in Avalanche", ProtagonistDescription.BARRET, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/a/a8/Barret_Wallace_from_FFVII_Remake_promo_render.png"),
+				new Protagonist("Aerith", "Gainsborough", Gender.FEMALE, "Flower Merchant", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/4/41/Aerith_Gainsborough_from_FFVII_Remake_promo_render.png"),
+				new Protagonist("Red XIII", "Unknown", Gender.MALE, "Unknown", ProtagonistDescription.EMPTY, "Unknown", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/0/03/RedXIII-ffvii-battle.png"),
+				new Protagonist("Cid", "Highwind", Gender.MALE, "Pilot", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/b/b0/CidHighwind-FFVIIArt.png"),
+				new Protagonist("Yuffie", "Kisaragi", Gender.FEMALE, "Materia Hunter", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/0/0d/Yuffie_Kisaragi_from_FFVII_Remake_promo_render.png"),
+				new Protagonist("Vincent", "Valentine", Gender.MALE, "Unknown", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/d/df/Vincent-FFVIIArt.png"),
+				new Protagonist("Sephiroth", "Unknown", Gender.MALE, "1st Class Soldier", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/1/17/Sephiroth_FFVII_Remake_render.png"),
 
 
 		// PROTAGONIST - FINAL FANTASY 8 -----------------------//
@@ -121,7 +127,9 @@ public class ApiApplication {
 				new Protagonist("Kiros", "Seagill", Gender.MALE, "Soldier", ProtagonistDescription.KIROS, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/9/95/Kiros2.jpg"),
 				new Protagonist("Ward", "Zabac", Gender.MALE,"Soldier", ProtagonistDescription.WARD, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/9/93/Ward.jpg"),
 				new Protagonist("Adel","Unknown", Gender.FEMALE, "Sorceress", ProtagonistDescription.ADEL, "Human", GameEdition.FINAL_FANTASY_VIII, "https://vignette.wikia.nocookie.net/finalfantasy/images/a/af/Adel2.jpg"),
-				new Protagonist("Ultimecia", "Unknown", Gender.FEMALE, "Sorceress", ProtagonistDescription.ULTIMECIA, "Human", GameEdition.FINAL_FANTASY_VIII, "https://www.heypoorplayer.com/wp-content/uploads/2017/08/Face_of_Sorceress_Ultimecia.jpg")
+				new Protagonist("Ultimecia", "Unknown", Gender.FEMALE, "Sorceress", ProtagonistDescription.ULTIMECIA, "Human", GameEdition.FINAL_FANTASY_VIII, "https://www.heypoorplayer.com/wp-content/uploads/2017/08/Face_of_Sorceress_Ultimecia.jpg"),
+				new Protagonist("Cid", "Kramer", Gender.MALE, "Headmaster", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/5/51/Cid_%28Final_Fantasy_VIII%29.jpg")
+
 			);
 
 			for (Protagonist protagonist : protagonistsList){

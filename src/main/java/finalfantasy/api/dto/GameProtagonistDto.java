@@ -13,8 +13,6 @@ import java.util.Set;
 @Getter
 public class GameProtagonistDto {
 
-    private long id;
-
     private ProtagonistDto protagonistDto;
 
     public GameProtagonistDto() {}

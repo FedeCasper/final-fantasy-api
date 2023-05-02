@@ -3,6 +3,7 @@ package finalfantasy.api.enums;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ProtagonistDescription {
+        EMPTY(""),
 
         // FINAL FANTASY 7
         CLOUD("is the main protagonist, introducing himself as a former member of SOLDIER who now operates as a mercenary. Cloud is caught up in the actions of eco-terrorist group AVALANCHE, and although initially uncaring toward their mission, he has a change of heart when he begins to discover his shrouded past."),
