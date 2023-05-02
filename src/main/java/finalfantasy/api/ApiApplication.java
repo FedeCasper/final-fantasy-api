@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class ApiApplication {
@@ -137,25 +138,33 @@ public class ApiApplication {
 			}
 
 
-			for (Protagonist protagonist : protagonistsList){
+			/*for (Protagonist protagonist : protagonistsList){
 				for(Game game : gamesList){
 					if(game.getAvailableProtagonistList().contains(protagonist.getName())){
-						gameProtagonistRepository.save(new GameProtagonist(game, protagonist));
+						if(
+								!(gameProtagonistRepository.findAll().stream().map(gameProtagonist ->
+										gameProtagonist.getProtagonist().getLastName()).collect(Collectors.toList())).contains(protagonist.getLastName())
+								/*&&!(gameProtagonistRepository.findAll().stream().map(gameProtagonist ->
+										gameProtagonist.getGame().getId()).collect(Collectors.toList())).contains( game.getId() )*/
+						/*){
+							gameProtagonistRepository.save(new GameProtagonist(game, protagonist));
+						}
 					}
+
 				}
-			}
+			}*/
 
 	// GAME-PROTAGONIST -----------------------//
-			/*GameProtagonist squallFF8 = new GameProtagonist(finalFantasyVIII, Squall);
-			GameProtagonist zellFF8 = new GameProtagonist(finalFantasyVIII, Zell);
-			GameProtagonist squallFFDisidia = new GameProtagonist(finalFantasyDissidia, Squall);*/
+			GameProtagonist squallFF8 = new GameProtagonist(gamesList.get(2), protagonistsList.get(2));
+			GameProtagonist zellFF8 = new GameProtagonist(gamesList.get(3), protagonistsList.get(3));
+			GameProtagonist squallFFDisidia = new GameProtagonist(gamesList.get(4), protagonistsList.get(4));
 
 
-			/*List<GameProtagonist> gameProtagonistsDissidia = Arrays.asList(squallFF8, squallFFDisidia, zellFF8);*/
+			List<GameProtagonist> gameProtagonistsDissidia = Arrays.asList(squallFF8, squallFFDisidia, zellFF8);
 
-			/*for (GameProtagonist gameProtagonist : gameProtagonistsDissidia){
+			for (GameProtagonist gameProtagonist : gameProtagonistsDissidia){
 				gameProtagonistRepository.save(gameProtagonist);
-			}*/
+			}
 
 	// GAME-SUMMON -----------------------//
 			List<GameSummon> gameSummonsFF8 = Arrays.asList(
