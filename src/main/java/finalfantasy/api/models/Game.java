@@ -2,6 +2,7 @@ package finalfantasy.api.models;
 
 import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.IntermediateTables.GameSummon;
+import finalfantasy.api.enums.AvailableProtagonists;
 import finalfantasy.api.enums.GameDescription;
 import finalfantasy.api.enums.Plataform;
 import lombok.Getter;
@@ -36,18 +37,17 @@ public class Game {
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     private Set<Location> locations = new HashSet<>();
 
-    @ElementCollection
-    private Set<String> availableProtagonist = new HashSet<>();
+    private ArrayList<String> availableProtagonistList;
 
     public Game (){};
 
-    public Game(String title, String releaseDate, String image, Plataform plataform, GameDescription description, Set<String> availableProtagonist) {
+    public Game(String title, String releaseDate, String image, Plataform plataform, GameDescription description, ArrayList<String> availableProtagonistList) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.image = image;
         this.plataform = plataform;
         this.description = description;
-        this.availableProtagonist = availableProtagonist;
+        this.availableProtagonistList = availableProtagonistList;
     }
 
 
