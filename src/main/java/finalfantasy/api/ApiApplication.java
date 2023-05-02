@@ -25,7 +25,7 @@ public class ApiApplication {
 	@Bean
 	public CommandLineRunner initData(ProtagonistRepository protagonistRepository, GameRepository gameRepository,
 									  GameProtagonistRepository gameProtagonistRepository, GameSummonRepository gameSummonRepository,
-									  SummonRepository summonRepository, LocationRepository locationRepository){
+									  SummonRepository summonRepository, LocationRepository locationRepository, EnemyRepository enemyRepository){
 		return (args) -> {
 
 			System.out.println("------------------");
@@ -38,19 +38,29 @@ public class ApiApplication {
 			Game finalFantasyII = new Game("Final Fantasy II", "31/12/1999", "https://static.wikia.nocookie.net/finalfantasy/images/6/69/FFII_logo.png", "Playstation", GameDescription.FF_8_DESCRIPTION);
 			Game finalFantasyIII = new Game("Final Fantasy III", "31/12/1999", "", "Playstation", GameDescription.FF_3_DESCRIPTION);
 			Game finalFantasyIV = new Game("Final Fantasy IV", "31/12/1999", "", "Playstation", GameDescription.FF_4_DESCRIPTION);
+			Game finalFantasyIV_AY = new Game("Final Fantasy IV, After Years", "31/12/1999", "", "Playstation", GameDescription.FF_4_DESCRIPTION);
 			Game finalFantasyV = new Game("Final Fantasy V", "31/12/1999", "", "Playstation", GameDescription.FF_5_DESCRIPTION);
 			Game finalFantasyVI = new Game("Final Fantasy VI", "31/12/1999", "", "Playstation", GameDescription.FF_6_DESCRIPTION);
 			Game finalFantasyVII = new Game("Final Fantasy VII", "31/12/1999", "", "Playstation", GameDescription.FF_7_DESCRIPTION);
+			Game finalFantasyVII_BC = new Game("Final Fantasy VII, Before Crisis", "31/12/1999", "", "Playstation", GameDescription.FF_7_DESCRIPTION);
+			Game finalFantasyVII_DC = new Game("Final Fantasy VII, Dirge of Cerberus", "31/12/1999", "", "Playstation", GameDescription.FF_7_DESCRIPTION);
+			Game finalFantasyVII_CC = new Game("Final Fantasy VII, Crisis Core", "31/12/1999", "", "Playstation", GameDescription.FF_7_DESCRIPTION);
 			Game finalFantasyVIII = new Game("Final Fantasy VIII", "31/12/1999", "", "Playstation", GameDescription.FF_8_DESCRIPTION);
 			Game finalFantasyIX = new Game("Final Fantasy IX", "31/12/1999", "", "Playstation", GameDescription.FF_9_DESCRIPTION);
 			Game finalFantasyX = new Game("Final Fantasy X", "31/12/1999", "", "Playstation", GameDescription.FF_10_DESCRIPTION);
 			Game finalFantasyX2 = new Game("Final Fantasy X-2", "31/12/1999", "", "Playstation", GameDescription.FF_10_2DESCRIPTION);
 			Game finalFantasyXII = new Game("Final Fantasy XII", "31/12/1999", "h", "Playstation", GameDescription.FF_12_DESCRIPTION);
 			Game finalFantasyXIII = new Game("Final Fantasy XIII", "31/12/1999", "", "Playstation", GameDescription.FF_13_DESCRIPTION);
+			Game finalFantasyXIII2 = new Game("Final Fantasy XIII-2", "31/12/1999", "", "Playstation", GameDescription.FF_13_DESCRIPTION);
+			Game finalFantasyXIII_LR = new Game("Final Fantasy XIII, Lightning Returns", "31/12/1999", "", "Playstation", GameDescription.FF_13_DESCRIPTION);
 			Game finalFantasyXV = new Game("Final Fantasy XV", "31/12/1999", "", "Playstation", GameDescription.FF_15_DESCRIPTION);
 			Game finalFantasyDissidia = new Game("Final Fantasy Dissidia", "1/2/2017", "https://static.wikia.nocookie.net/finalfantasy/images/b/b6/Dissidia_Logo.jpg", "Playstation", GameDescription.FF_DISSIDIA);
+			Game finalFantasyType0 = new Game("Final Fantasy VII", "31/12/1999", "", "Playstation", GameDescription.FF_7_DESCRIPTION);
 
-			List<Game> games = Arrays.asList(finalFantasyI, finalFantasyII, finalFantasyIII, finalFantasyIV, finalFantasyV, finalFantasyVI, finalFantasyVII, finalFantasyVIII, finalFantasyIX, finalFantasyX, finalFantasyX2, finalFantasyXII, finalFantasyXIII, finalFantasyXV, finalFantasyDissidia);
+			List<Game> games = Arrays.asList(finalFantasyI, finalFantasyII, finalFantasyIII, finalFantasyIV,
+					finalFantasyV, finalFantasyVI, finalFantasyVII, finalFantasyVIII, finalFantasyIX, finalFantasyX,
+					finalFantasyX2, finalFantasyXII, finalFantasyXIII, finalFantasyXV, finalFantasyDissidia, finalFantasyIV_AY,
+					finalFantasyVII_BC, finalFantasyVII_CC, finalFantasyVII_DC, finalFantasyXIII2, finalFantasyXIII_LR, finalFantasyType0);
 
 			for(Game game : games){
 				gameRepository.save(game);
