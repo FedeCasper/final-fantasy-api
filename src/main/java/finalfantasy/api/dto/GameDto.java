@@ -35,7 +35,7 @@ public class GameDto {
         this.plataform = game.getPlataform();
         this.description = game.getDescription();
         this.gameProtagonistDtoSet = game.getGameProtagonists().stream().map( gameProtagonist -> new GameProtagonistDto(gameProtagonist)).collect(Collectors.toSet());
-        this.gameSummonDtoSet = game.getGameSummons().stream().map(gameSummon -> new GameSummonDto(gameSummon)).collect(Collectors.toSet());
+        /*this.gameSummonDtoSet = game.getGameSummons().stream().map(gameSummon -> new GameSummonDto(gameSummon)).collect(Collectors.toSet());*/
         this.locationDtoSet = game.getLocations().stream().map(location -> new LocationDto(location)).collect(Collectors.toSet());
     }
 

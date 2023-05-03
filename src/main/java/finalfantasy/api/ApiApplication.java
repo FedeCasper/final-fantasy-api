@@ -63,57 +63,8 @@ public class ApiApplication {
 				gameRepository.save(game);
 			}
 
-	// SUMMON - FINAL FANTASY 8 -----------------------//
-			List<Summon> summonsList = Arrays.asList(
-				new Summon("Chocobo", SummonType.NON_ELEMENTAL),
-				new Summon("Ramuh", SummonType.THUNDER),
-				new Summon("Titan", SummonType.EARTH),
-				new Summon("Odin", SummonType.NON_ELEMENTAL),
-				new Summon("Neo Bahamut", SummonType.NON_ELEMENTAL),
-				new Summon("Bahamut Zero", SummonType.NON_ELEMENTAL),
-				new Summon("Hades", SummonType.NON_ELEMENTAL),
-				new Summon("Knights of the Round", SummonType.NON_ELEMENTAL),
-				new Summon("Kujata", SummonType.EARTH),
-				new Summon("Phoenix", SummonType.FIRE),
-				new Summon("Typhon", SummonType.WIND),
-				new Summon("Gilgamesh", SummonType.NON_ELEMENTAL),
-				new Summon("Anima", SummonType.NON_ELEMENTAL),
-				new Summon("Quetzacotl", SummonType.THUNDER),
-				new Summon("Brothers", SummonType.EARTH),
-				new Summon("Diablos", SummonType.GRAVITY),
-				new Summon("Carbuncle", SummonType.NON_ELEMENTAL),
-				new Summon("Leviathan", SummonType.WATER),
-				new Summon("Pandemona", SummonType.WIND),
-				new Summon("Cerberus", SummonType.NON_ELEMENTAL),
-				new Summon("Alexander", SummonType.HOLY),
-				new Summon("Doomtrain", SummonType.POISON),
-				new Summon("Bahamut", SummonType.NON_ELEMENTAL),
-				new Summon("Cactuar", SummonType.NON_ELEMENTAL),
-				new Summon("Tonberry", SummonType.NON_ELEMENTAL),
-				new Summon("Eden", SummonType.NON_ELEMENTAL),
-				new Summon("Ifrit", SummonType.FIRE),
-				new Summon("Shiva", SummonType.ICE),
-				new Summon("Siren", SummonType.NON_ELEMENTAL)
-			);
-
-
-			for(Summon summon : summonsList){
-				summonRepository.save(summon);
-			}
-
 
 			List<Protagonist> protagonistsList = Arrays.asList(
-		// PROTAGONIST - FINAL FANTASY 7 -----------------------//
-				new Protagonist("Cloud", "Strife", Gender.MALE, "Ex Soldier", ProtagonistDescription.CLOUD, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/e/ef/Cloud_Strife_from_FFVII_Remake_bust_render.png"),
-				new Protagonist("Tifa", "Lockhart", Gender.FEMALE, "Avalanche Member", ProtagonistDescription.TIFA, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/9/9c/Tifa_Lockhart_from_FFVII_Remake_promo_render.png"),
-				new Protagonist("Barret", "Wallace", Gender.MALE, "Leader in Avalanche", ProtagonistDescription.BARRET, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/a/a8/Barret_Wallace_from_FFVII_Remake_promo_render.png"),
-				new Protagonist("Aerith", "Gainsborough", Gender.FEMALE, "Flower Merchant", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/4/41/Aerith_Gainsborough_from_FFVII_Remake_promo_render.png"),
-				new Protagonist("Red XIII", "Unknown", Gender.MALE, "Unknown", ProtagonistDescription.EMPTY, "Unknown", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/0/03/RedXIII-ffvii-battle.png"),
-				new Protagonist("Cid", "Highwind", Gender.MALE, "Pilot", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/b/b0/CidHighwind-FFVIIArt.png"),
-				new Protagonist("Yuffie", "Kisaragi", Gender.FEMALE, "Materia Hunter", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/0/0d/Yuffie_Kisaragi_from_FFVII_Remake_promo_render.png"),
-				new Protagonist("Vincent", "Valentine", Gender.MALE, "Unknown", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/d/df/Vincent-FFVIIArt.png"),
-				new Protagonist("Sephiroth", "Unknown", Gender.MALE, "1st Class Soldier", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VII, "https://static.wikia.nocookie.net/finalfantasy/images/1/17/Sephiroth_FFVII_Remake_render.png"),
-
 
 		// PROTAGONIST - FINAL FANTASY 8 -----------------------//
 				new Protagonist("Squall", "Leonheart", Gender.MALE, "Soldier", ProtagonistDescription.SQUALL, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/d/d2/Ff8-squall.jpg"),
@@ -167,7 +118,7 @@ public class ApiApplication {
 			}
 
 	// GAME-SUMMON -----------------------//
-			List<GameSummon> gameSummonsFF8 = Arrays.asList(
+			/*List<GameSummon> gameSummonsFF8 = Arrays.asList(
 				// Ramuh
 				new GameSummon(gamesList.get(2), summonsList.get(1), SummonImage.IFRIT_IMG_FF3),
 				new GameSummon(gamesList.get(3), summonsList.get(1), SummonImage.IFRIT_IMG_FF4),
@@ -206,7 +157,7 @@ public class ApiApplication {
 
 			for (GameSummon gameSummon : gameSummonsFF8){
 				 gameSummonRepository.save(gameSummon);
-			}
+			}*/
 
 	// LOCATIONS -----------------------//
 

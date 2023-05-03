@@ -15,8 +15,8 @@ public class GameSummonDto {
     public GameSummonDto() {
     }
 
-    public GameSummonDto(GameSummon gameSummon) {
-        this.name = gameSummon.getSummon().getName();
-        this.type = gameSummon.getSummon().getType();
+    public GameSummonDto(String name, SummonType summonType) {
+        this.name = name;
+        this.type = summonType;
     }
 }
