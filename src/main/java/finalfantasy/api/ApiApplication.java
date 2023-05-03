@@ -170,11 +170,11 @@ public class ApiApplication {
 			List<GameSummon> gameSummonsFF8 = Arrays.asList(
 				// Ramuh
 				new GameSummon(gamesList.get(2), summonsList.get(1), SummonImage.IFRIT_IMG_FF3),
-				new GameSummon(gamesList.get(2), summonsList.get(1), SummonImage.IFRIT_IMG_FF4),
-				new GameSummon(gamesList.get(2), summonsList.get(1), SummonImage.IFRIT_IMG_FF5),
-				new GameSummon(gamesList.get(2), summonsList.get(1), SummonImage.IFRIT_IMG_FF6),
-				new GameSummon(gamesList.get(2), summonsList.get(1), SummonImage.IFRIT_IMG_FF7),
-				new GameSummon(gamesList.get(2), summonsList.get(1), SummonImage.IFRIT_IMG_FF9),
+				new GameSummon(gamesList.get(3), summonsList.get(1), SummonImage.IFRIT_IMG_FF4),
+				new GameSummon(gamesList.get(4), summonsList.get(1), SummonImage.IFRIT_IMG_FF5),
+				new GameSummon(gamesList.get(5), summonsList.get(1), SummonImage.IFRIT_IMG_FF6),
+				new GameSummon(gamesList.get(6), summonsList.get(1), SummonImage.IFRIT_IMG_FF7),
+				new GameSummon(gamesList.get(7), summonsList.get(1), SummonImage.IFRIT_IMG_FF9),
 
 				// Leviathan
 				new GameSummon(gamesList.get(2), summonsList.get(17), SummonImage.IFRIT_IMG_FF3),
