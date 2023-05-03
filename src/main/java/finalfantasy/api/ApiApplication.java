@@ -64,30 +64,6 @@ public class ApiApplication {
 			}
 
 
-			List<Protagonist> protagonistsList = Arrays.asList(
-
-		// PROTAGONIST - FINAL FANTASY 8 -----------------------//
-				new Protagonist("Squall", "Leonheart", Gender.MALE, "Soldier", ProtagonistDescription.SQUALL, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/d/d2/Ff8-squall.jpg"),
-				new Protagonist("Rinoa", "Heartilly", Gender.FEMALE,"Strategist",ProtagonistDescription.RINOA,"Human",GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/0/09/Ff8-rinoa.jpg"),
-				new Protagonist("Irvine", "Kinneas", Gender.MALE, "Mercenary", ProtagonistDescription.IRVINE,"Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/1/18/Ff8-irvine.jpg"),
-				new Protagonist("Zell", "Dincht", Gender.MALE,"Mercenary", ProtagonistDescription.ZELL, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/7/75/Ff8-zell.jpg"),
-				new Protagonist("Selphie", "Tilmitt", Gender.FEMALE,"Mercenary", ProtagonistDescription.SELPHIE, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/c/cd/Ff8-selphie.jpg"),
-				new Protagonist("Quistis", "Trepe", Gender.FEMALE,"Instructor", ProtagonistDescription.QUISTIS, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/9/92/Ff8-quistis.jpg"),
-				new Protagonist("Seifer", "Almasy", Gender.MALE, "Mercenary" , ProtagonistDescription.SEIFER, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/f/f7/Ff8-seifer.jpg"),
-				new Protagonist("Edea", "Kramer", Gender.FEMALE,"Ambassador", ProtagonistDescription.EDEA, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/7/7f/Ff8-edea.jpg"),
-				new Protagonist("Laguna", "Loire", Gender.MALE, "President of Esthar", ProtagonistDescription.LAGUNA, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/d/dc/Ff8-laguna.jpg"),
-				new Protagonist("Kiros", "Seagill", Gender.MALE, "Soldier", ProtagonistDescription.KIROS, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/9/95/Kiros2.jpg"),
-				new Protagonist("Ward", "Zabac", Gender.MALE,"Soldier", ProtagonistDescription.WARD, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/9/93/Ward.jpg"),
-				new Protagonist("Adel","Unknown", Gender.FEMALE, "Sorceress", ProtagonistDescription.ADEL, "Human", GameEdition.FINAL_FANTASY_VIII, "https://vignette.wikia.nocookie.net/finalfantasy/images/a/af/Adel2.jpg"),
-				new Protagonist("Ultimecia", "Unknown", Gender.FEMALE, "Sorceress", ProtagonistDescription.ULTIMECIA, "Human", GameEdition.FINAL_FANTASY_VIII, "https://www.heypoorplayer.com/wp-content/uploads/2017/08/Face_of_Sorceress_Ultimecia.jpg"),
-				new Protagonist("Cid", "Kramer", Gender.MALE, "Headmaster", ProtagonistDescription.EMPTY, "Human", GameEdition.FINAL_FANTASY_VIII, "https://static.wikia.nocookie.net/finalfantasy/images/5/51/Cid_%28Final_Fantasy_VIII%29.jpg")
-
-			);
-
-			for (Protagonist protagonist : protagonistsList){
-				protagonistRepository.save(protagonist);
-			}
-
 
 			/*for (Protagonist protagonist : protagonistsList){
 				for(Game game : gamesList){
@@ -106,16 +82,16 @@ public class ApiApplication {
 			}*/
 
 	// GAME-PROTAGONIST -----------------------//
-			GameProtagonist squallFF8 = new GameProtagonist(gamesList.get(2), protagonistsList.get(2));
+			/*GameProtagonist squallFF8 = new GameProtagonist(gamesList.get(2), protagonistsList.get(2));
 			GameProtagonist zellFF8 = new GameProtagonist(gamesList.get(3), protagonistsList.get(3));
-			GameProtagonist squallFFDisidia = new GameProtagonist(gamesList.get(4), protagonistsList.get(4));
+			GameProtagonist squallFFDisidia = new GameProtagonist(gamesList.get(4), protagonistsList.get(4));*/
 
 
-			List<GameProtagonist> gameProtagonistsDissidia = Arrays.asList(squallFF8, squallFFDisidia, zellFF8);
+			/*List<GameProtagonist> gameProtagonistsDissidia = Arrays.asList(squallFF8, squallFFDisidia, zellFF8);
 
 			for (GameProtagonist gameProtagonist : gameProtagonistsDissidia){
 				gameProtagonistRepository.save(gameProtagonist);
-			}
+			}*/
 
 	// GAME-SUMMON -----------------------//
 			/*List<GameSummon> gameSummonsFF8 = Arrays.asList(

@@ -20,7 +20,7 @@ public class ProtagonistDto {
     private long id;
     private String name;
     private String lastName;
-    private Gender gender;
+    private String gender;
     private String job;
     @Column(length = 1000)
     private ProtagonistDescription description;
@@ -32,6 +32,7 @@ public class ProtagonistDto {
     public ProtagonistDto(){}
 
     public ProtagonistDto(Protagonist protagonist) {
+        this.id = protagonist.getId();
         this.name = protagonist.getName();
         this.lastName = protagonist.getLastName();
         this.gender = protagonist.getGender();

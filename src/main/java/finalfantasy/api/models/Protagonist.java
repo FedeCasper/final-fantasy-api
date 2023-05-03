@@ -24,8 +24,7 @@ public class Protagonist {
     private long id;
     private String name;
     private String lastName;
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    private String gender;
     private String job;
     @Column(length = 1000)
     private ProtagonistDescription description;
@@ -39,7 +38,7 @@ public class Protagonist {
 
     public Protagonist(){}
 
-    public Protagonist(String name, String lastName, Gender gender, String job, ProtagonistDescription description, String race, GameEdition origin, String imageUrl) {
+    public Protagonist(String name, String lastName, String gender, String job, ProtagonistDescription description, String race, GameEdition origin, String imageUrl) {
         this.name = name;
         this.lastName = lastName;
         this.gender = gender;
