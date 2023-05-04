@@ -1,18 +1,10 @@
 package finalfantasy.api.dto;
 
-import com.fasterxml.jackson.annotation.JsonValue;
-import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.enums.GameEdition;
-import finalfantasy.api.enums.Gender;
-import finalfantasy.api.enums.ProtagonistDescription;
-import finalfantasy.api.models.Game;
 import finalfantasy.api.models.Protagonist;
 import lombok.Getter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 public class ProtagonistDto {
@@ -23,7 +15,7 @@ public class ProtagonistDto {
     private String gender;
     private String job;
     @Column(length = 1000)
-    private ProtagonistDescription description;
+    private String description;
     private String race;
     private GameEdition origin;
     private String imageUrl;
