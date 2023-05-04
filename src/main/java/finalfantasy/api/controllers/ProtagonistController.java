@@ -58,6 +58,14 @@ public class ProtagonistController {
                     )
             ) ;
 
+            List<Game> gameList = gameRepository.findAll();
+            for(Game game : gameList){
+                Boolean match = game.getAvailableProtagonistList().contains(protagonistDto.getName());
+                if(match){
+                   gameProtagonistRepository.save( new GameProtagonist(game, null) );
+                }
+            }
+
         }
         return new ResponseEntity<>(protagonistDtoList.size() + " protagonists has benn created", HttpStatus.OK);
     }
