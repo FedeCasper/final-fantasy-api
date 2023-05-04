@@ -1,13 +1,11 @@
 package finalfantasy.api.dto;
 
-import finalfantasy.api.IntermediateTables.GameSummon;
 import finalfantasy.api.enums.GameDescription;
-import finalfantasy.api.enums.Plataform;
 import finalfantasy.api.models.Game;
 import lombok.Getter;
 
 import javax.persistence.Column;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -18,13 +16,10 @@ public class GameDto {
     private String title;
     private String releaseDate;
     private String image;
-    private Plataform plataform;
+    private String platform;
     @Column(length = 1000)
     private GameDescription description;
-
-    private Set<GameProtagonistDto> gameProtagonistDtoSet;
-    private Set<GameSummonDto> gameSummonDtoSet;
-    private Set<LocationDto> locationDtoSet;
+    private ArrayList<String> availableProtagonistList;
 
     public GameDto (){};
 
@@ -32,11 +27,8 @@ public class GameDto {
         this.title = game.getTitle();
         this.releaseDate = game.getReleaseDate();
         this.image = game.getImage();
-        this.plataform = game.getPlataform();
+        this.platform = game.getPlatform();
         this.description = game.getDescription();
-        this.gameProtagonistDtoSet = game.getGameProtagonists().stream().map( gameProtagonist -> new GameProtagonistDto(gameProtagonist)).collect(Collectors.toSet());
-        /*this.gameSummonDtoSet = game.getGameSummons().stream().map(gameSummon -> new GameSummonDto(gameSummon)).collect(Collectors.toSet());*/
-        this.locationDtoSet = game.getLocations().stream().map(location -> new LocationDto(location)).collect(Collectors.toSet());
+        this.availableProtagonistList = game.getAvailableProtagonistList();
     }
-
 }

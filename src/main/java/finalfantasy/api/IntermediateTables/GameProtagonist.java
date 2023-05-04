@@ -29,7 +29,8 @@ public class GameProtagonist {
     }
 
     public GameProtagonist(Game game, Protagonist protagonist) {
-        this.name = protagonist.getName() + " " + (protagonist.getLastName().equals("Unknown") ? "" : protagonist.getLastName()) + " de " + game.getTitle();
+        this.name = game.getTitle();
+        /*this.name = protagonist.getName() + " " + (protagonist.getLastName().equals("Unknown") ? "" : protagonist.getLastName()) + " de " + game.getTitle();*/
         this.game = game;
         this.protagonist = protagonist;
     }

@@ -1,14 +1,20 @@
 package finalfantasy.api.controllers;
 
+import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.dto.ProtagonistDto;
+import finalfantasy.api.enums.GameDescription;
 import finalfantasy.api.enums.GameEdition;
+import finalfantasy.api.models.Game;
 import finalfantasy.api.models.Protagonist;
+import finalfantasy.api.repositories.GameProtagonistRepository;
+import finalfantasy.api.repositories.GameRepository;
 import finalfantasy.api.repositories.ProtagonistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,6 +24,12 @@ public class ProtagonistController {
 
     @Autowired
     ProtagonistRepository protagonistRepository;
+
+    @Autowired
+    GameProtagonistRepository gameProtagonistRepository;
+
+    @Autowired
+    GameRepository gameRepository;
 
     @GetMapping("/protagonists")
     public List<ProtagonistDto> getAllProtagonist (){
@@ -51,4 +63,15 @@ public class ProtagonistController {
         return new ResponseEntity<>(protagonistDtoList.size() + " protagonists has benn created", HttpStatus.OK);
     }
 
+    @PostMapping("/newGameProtagonists")
+    public ResponseEntity<Object> createGameProtagonists () {
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add("Pepe");
+        Game ff7 = new Game ("Fianl7","","", "PLAYSTATION_4", GameDescription.FF_15_DESCRIPTION,lista);
+        Protagonist cloud = new Protagonist();
+        protagonistRepository.save(cloud);
+        gameRepository.save(ff7);
+        gameProtagonistRepository.save(new GameProtagonist( ff7 , cloud));
+        return new ResponseEntity<>("GameProtagonist created" , HttpStatus.CREATED);
+    }
 }

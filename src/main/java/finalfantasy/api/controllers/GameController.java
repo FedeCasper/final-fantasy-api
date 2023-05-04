@@ -2,14 +2,17 @@ package finalfantasy.api.controllers;
 
 import finalfantasy.api.dto.GameDto;
 import finalfantasy.api.dto.ProtagonistDto;
+import finalfantasy.api.enums.GameDescription;
+import finalfantasy.api.models.Game;
+import finalfantasy.api.models.Protagonist;
 import finalfantasy.api.repositories.GameRepository;
 import finalfantasy.api.repositories.ProtagonistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +26,36 @@ public class GameController {
     @GetMapping("/games")
     public List<GameDto> getAllGames (){
         return gameRepository.findAll().stream().map( game -> new GameDto(game)).collect(Collectors.toList());
+    }
+
+    @PostMapping("/newGame")
+    public ResponseEntity<Object> createNewGame(
+            @RequestParam String title,
+            @RequestParam String releaseDate,
+            @RequestParam String image,
+            @RequestParam String platform,
+            @RequestParam GameDescription gameDescription,
+            @RequestParam ArrayList<String> availableProtagonistList
+            ){
+            gameRepository.save(
+                    new Game(title, releaseDate, image, platform, gameDescription, availableProtagonistList)
+            );
+            return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/newGames")
+    public ResponseEntity<Object> createGames (@RequestBody List<GameDto> gameDtoList) {
+
+        if(gameDtoList.size() < 1){
+            return new ResponseEntity<>("The array length in the POST petition can't be 0", HttpStatus.BAD_REQUEST);
+        }
+
+        for(GameDto gameDto : gameDtoList){
+            gameRepository.save(new Game( gameDto.getTitle(), gameDto.getReleaseDate(),gameDto.getImage(),
+                    gameDto.getPlatform(), gameDto.getDescription(), gameDto.getAvailableProtagonistList() )
+            ) ;
+        }
+        return new ResponseEntity<>(gameDtoList.size() + " protagonists has benn created", HttpStatus.OK);
     }
 
 }

@@ -34,7 +34,7 @@ public class ApiApplication {
 	// GAMES -----------------------//
 
 
-			List<Game> gamesList = Arrays.asList(
+			/*List<Game> gamesList = Arrays.asList(
 			new Game("Final Fantasy I", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", Plataform.SNES, GameDescription.FF_8_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
 			new Game("Final Fantasy II", "31/12/1999", "https://static.wikia.nocookie.net/finalfantasy/images/6/69/FFII_logo.png", Plataform.SNES, GameDescription.FF_8_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
 			new Game("Final Fantasy III", "31/12/1999", "", Plataform.SNES, GameDescription.FF_3_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
@@ -57,11 +57,11 @@ public class ApiApplication {
 			new Game("Final Fantasy XV", "31/12/1999", "", Plataform.PLAYSTATION_4, GameDescription.FF_15_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
 			new Game("Final Fantasy Dissidia", "1/2/2017", "https://static.wikia.nocookie.net/finalfantasy/images/b/b6/Dissidia_Logo.jpg", Plataform.PSP, GameDescription.FF_DISSIDIA, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
 			new Game("Final Fantasy Type-0", "31/12/1999", "", Plataform.PLAYSTATION_4, GameDescription.FF_7_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList())
-			);
+			);*/
 
-			for(Game game : gamesList){
+			/*for(Game game : gamesList){
 				gameRepository.save(game);
-			}
+			}*/
 
 
 
@@ -137,7 +137,7 @@ public class ApiApplication {
 
 	// LOCATIONS -----------------------//
 
-			Set<LocationImage> locationImageSet = new HashSet<>();
+			/*Set<LocationImage> locationImageSet = new HashSet<>();
 			locationImageSet.add(LocationImage.FIRE_CAVERN_IMG);
 			locationImageSet.add(LocationImage.FIRE_CAVERN_MAP);
 
@@ -148,7 +148,7 @@ public class ApiApplication {
 
 			for (Location location : locationListFF8){
 				locationRepository.save(location);
-			}
+			}*/
 
 		};
 
