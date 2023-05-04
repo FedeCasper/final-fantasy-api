@@ -34,20 +34,21 @@ public class ProtagonistController {
 
     @PostMapping("/newProtagonists")
     public ResponseEntity<Object> createProtagonists (@RequestBody List<ProtagonistDto> protagonistDtoList) {
-        for(ProtagonistDto protagonistDto : protagonistDtoList){
 
+        if(protagonistDtoList.size() < 1){
+            return new ResponseEntity<>("The array length in the POST petition can't be 0", HttpStatus.BAD_REQUEST);
+        }
+
+        for(ProtagonistDto protagonistDto : protagonistDtoList){
             protagonistRepository.save(new Protagonist(
                     protagonistDto.getName(), protagonistDto.getLastName(),protagonistDto.getGender(),
                     protagonistDto.getJob(), protagonistDto.getDescription(), protagonistDto.getRace(),
                     protagonistDto.getOrigin(), protagonistDto.getImageUrl()
                     )
-
             ) ;
 
         }
-
-        return new ResponseEntity<>(protagonistRepository.count() + " protagonists has benn created", HttpStatus.OK);
-
+        return new ResponseEntity<>(protagonistDtoList.size() + " protagonists has benn created", HttpStatus.OK);
     }
 
 }
