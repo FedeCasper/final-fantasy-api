@@ -1,12 +1,8 @@
 package finalfantasy.api.controllers;
 
 import finalfantasy.api.dto.GameDto;
-import finalfantasy.api.dto.ProtagonistDto;
-import finalfantasy.api.enums.GameDescription;
 import finalfantasy.api.models.Game;
-import finalfantasy.api.models.Protagonist;
 import finalfantasy.api.repositories.GameRepository;
-import finalfantasy.api.repositories.ProtagonistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +30,7 @@ public class GameController {
             @RequestParam String releaseDate,
             @RequestParam String image,
             @RequestParam String platform,
-            @RequestParam GameDescription gameDescription,
+            @RequestParam String gameDescription,
             @RequestParam ArrayList<String> availableProtagonistList
             ){
             gameRepository.save(
@@ -55,7 +51,7 @@ public class GameController {
                     gameDto.getPlatform(), gameDto.getDescription(), gameDto.getAvailableProtagonistList() )
             ) ;
         }
-        return new ResponseEntity<>(gameDtoList.size() + " protagonists has benn created", HttpStatus.OK);
+        return new ResponseEntity<>(gameDtoList.size() + " games has benn created", HttpStatus.OK);
     }
 
 }

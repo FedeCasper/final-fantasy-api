@@ -2,7 +2,6 @@ package finalfantasy.api.models;
 
 import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.IntermediateTables.GameSummon;
-import finalfantasy.api.enums.GameDescription;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -24,7 +23,7 @@ public class Game {
     private String image;
     private String platform;
     @Column(length = 1000)
-    private GameDescription description;
+    private String description;
 
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     private Set<GameProtagonist> gameProtagonists = new HashSet<>();
@@ -39,7 +38,7 @@ public class Game {
 
     public Game (){};
 
-    public Game(String title, String releaseDate, String image, String platform, GameDescription description, ArrayList<String> availableProtagonistList) {
+    public Game(String title, String releaseDate, String image, String platform, String description, ArrayList<String> availableProtagonistList) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.image = image;

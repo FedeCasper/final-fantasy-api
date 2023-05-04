@@ -2,7 +2,6 @@ package finalfantasy.api.controllers;
 
 import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.dto.ProtagonistDto;
-import finalfantasy.api.enums.GameDescription;
 import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.models.Game;
 import finalfantasy.api.models.Protagonist;
@@ -67,7 +66,7 @@ public class ProtagonistController {
     public ResponseEntity<Object> createGameProtagonists () {
         ArrayList<String> lista = new ArrayList<>();
         lista.add("Pepe");
-        Game ff7 = new Game ("Fianl7","","", "PLAYSTATION_4", GameDescription.FF_15_DESCRIPTION,lista);
+        Game ff7 = new Game ("Fianl7","","", "PLAYSTATION_4", "FF_15_DESCRIPTION",lista);
         Protagonist cloud = new Protagonist();
         protagonistRepository.save(cloud);
         gameRepository.save(ff7);

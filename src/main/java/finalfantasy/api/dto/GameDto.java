@@ -1,13 +1,10 @@
 package finalfantasy.api.dto;
 
-import finalfantasy.api.enums.GameDescription;
 import finalfantasy.api.models.Game;
 import lombok.Getter;
 
 import javax.persistence.Column;
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Getter
 public class GameDto {
@@ -18,7 +15,7 @@ public class GameDto {
     private String image;
     private String platform;
     @Column(length = 1000)
-    private GameDescription description;
+    private String description;
     private ArrayList<String> availableProtagonistList;
 
     public GameDto (){};

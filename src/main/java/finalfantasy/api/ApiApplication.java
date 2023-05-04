@@ -35,26 +35,9 @@ public class ApiApplication {
 
 
 			/*List<Game> gamesList = Arrays.asList(
-			new Game("Final Fantasy I", "31/12/1999", "https://th.bing.com/th/id/OIP.Pcp_rJhq2R0aQk7sPB8WVAHaF8?pid=ImgDet&rs=1", Plataform.SNES, GameDescription.FF_8_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy II", "31/12/1999", "https://static.wikia.nocookie.net/finalfantasy/images/6/69/FFII_logo.png", Plataform.SNES, GameDescription.FF_8_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy III", "31/12/1999", "", Plataform.SNES, GameDescription.FF_3_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy IV", "31/12/1999", "", Plataform.SUPER_NES, GameDescription.FF_4_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy IV, After Years", "31/12/1999", "", Plataform.SUPER_NES, GameDescription.FF_4_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy V", "31/12/1999", "", Plataform.SUPER_NES, GameDescription.FF_5_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy VI", "31/12/1999", "", Plataform.SUPER_NES, GameDescription.FF_6_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy VII", "31/12/1999", "", Plataform.PLAYSTATION, GameDescription.FF_7_DESCRIPTION, AvailableProtagonists.FF7.getAvailableProtagonistList()),
 			new Game("Final Fantasy VII, Before Crisis", "31/12/1999", "", Plataform.MOBIL_PHONE, GameDescription.FF_7_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
 			new Game("Final Fantasy VII, Dirge of Cerberus", "31/12/1999", "", Plataform.PLAYSTATION_2, GameDescription.FF_7_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
 			new Game("Final Fantasy VII, Crisis Core", "31/12/1999", "", Plataform.PSP, GameDescription.FF_7_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy VIII", "31/12/1999", "", Plataform.PLAYSTATION, GameDescription.FF_8_DESCRIPTION, AvailableProtagonists.FF8.getAvailableProtagonistList()),
-			new Game("Final Fantasy IX", "31/12/1999", "", Plataform.PLAYSTATION, GameDescription.FF_9_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy X", "31/12/1999", "", Plataform.PLAYSTATION_2, GameDescription.FF_10_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy X-2", "31/12/1999", "", Plataform.PLAYSTATION_2, GameDescription.FF_10_2DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy XII", "31/12/1999", "h", Plataform.PLAYSTATION_2, GameDescription.FF_12_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy XIII", "31/12/1999", "", Plataform.PLAYSTATION_3, GameDescription.FF_13_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy XIII-2", "31/12/1999", "", Plataform.PLAYSTATION_3, GameDescription.FF_13_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy XIII, Lightning Returns", "31/12/1999", "", Plataform.PLAYSTATION_3, GameDescription.FF_13_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
-			new Game("Final Fantasy XV", "31/12/1999", "", Plataform.PLAYSTATION_4, GameDescription.FF_15_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
 			new Game("Final Fantasy Dissidia", "1/2/2017", "https://static.wikia.nocookie.net/finalfantasy/images/b/b6/Dissidia_Logo.jpg", Plataform.PSP, GameDescription.FF_DISSIDIA, AvailableProtagonists.EMPTY.getAvailableProtagonistList()),
 			new Game("Final Fantasy Type-0", "31/12/1999", "", Plataform.PLAYSTATION_4, GameDescription.FF_7_DESCRIPTION, AvailableProtagonists.EMPTY.getAvailableProtagonistList())
 			);*/
