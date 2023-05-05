@@ -19,6 +19,7 @@ public class GameProtagonist {
     private long id;
 
     private String name;
+    private String gameEdition;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Game game;
@@ -29,8 +30,8 @@ public class GameProtagonist {
     }
 
     public GameProtagonist(Game game, Protagonist protagonist) {
-        this.name = game.getTitle();
-        /*this.name = protagonist.getName() + " " + (protagonist.getLastName().equals("Unknown") ? "" : protagonist.getLastName()) + " de " + game.getTitle();*/
+        this.name = protagonist.getName();
+        this.gameEdition = game.getTitle();
         this.game = game;
         this.protagonist = protagonist;
     }

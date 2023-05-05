@@ -44,30 +44,32 @@ public class ProtagonistController {
     }
 
     @PostMapping("/newProtagonists")
-    public ResponseEntity<Object> createProtagonists (@RequestBody List<ProtagonistDto> protagonistDtoList) {
+    public ResponseEntity<Object> createProtagonists (@RequestBody List<Protagonist> protagonistList) {
 
-        if(protagonistDtoList.size() < 1){
+        List<Game> gameList = gameRepository.findAll();
+
+        if(protagonistList.size() < 1){
             return new ResponseEntity<>("The array length in the POST petition can't be 0", HttpStatus.BAD_REQUEST);
         }
 
-        for(ProtagonistDto protagonistDto : protagonistDtoList){
-            protagonistRepository.save(new Protagonist(
-                    protagonistDto.getName(), protagonistDto.getLastName(),protagonistDto.getGender(),
-                    protagonistDto.getJob(), protagonistDto.getDescription(), protagonistDto.getRace(),
-                    protagonistDto.getOrigin(), protagonistDto.getImageUrl()
-                    )
-            ) ;
+        for(Protagonist protagonist : protagonistList){
+            Protagonist newProtagonist = new Protagonist(
+                    protagonist.getName(), protagonist.getLastName(),protagonist.getGender(),
+                    protagonist.getJob(), protagonist.getDescription(), protagonist.getRace(),
+                    protagonist.getOrigin(), protagonist.getImageUrl() );
+                    protagonistRepository.save(newProtagonist
+                    );
 
-            List<Game> gameList = gameRepository.findAll();
+
             for(Game game : gameList){
-                Boolean match = game.getAvailableProtagonistList().contains(protagonistDto.getName());
+                boolean match = game.getAvailableProtagonistList().contains(newProtagonist.getName());
                 if(match){
-                   gameProtagonistRepository.save( new GameProtagonist(game, null) );
+                   gameProtagonistRepository.save( new GameProtagonist(game, newProtagonist) );
                 }
             }
 
         }
-        return new ResponseEntity<>(protagonistDtoList.size() + " protagonists has benn created", HttpStatus.OK);
+        return new ResponseEntity<>(protagonistList.size() + " protagonists has benn created", HttpStatus.OK);
     }
 
     @PostMapping("/newGameProtagonists")
