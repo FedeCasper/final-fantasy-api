@@ -35,16 +35,18 @@ public class Game {
     private Set<Location> locations = new HashSet<>();
 
     private ArrayList<String> availableProtagonistList;
+    private ArrayList<String> availableSummonsList;
 
     public Game (){};
 
-    public Game(String title, String releaseDate, String image, String platform, String description, ArrayList<String> availableProtagonistList) {
+    public Game(String title, String releaseDate, String image, String platform, String description, ArrayList<String> availableProtagonistList, ArrayList<String> availableSummonsList) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.image = image;
         this.platform = platform;
         this.description = description;
         this.availableProtagonistList = availableProtagonistList;
+        this.availableSummonsList = availableSummonsList;
     }
 
 

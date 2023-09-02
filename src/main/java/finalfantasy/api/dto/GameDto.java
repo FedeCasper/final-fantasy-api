@@ -17,6 +17,7 @@ public class GameDto {
     @Column(length = 1000)
     private String description;
     private ArrayList<String> availableProtagonistList;
+    private ArrayList<String> availableSummonList;
 
     public GameDto (){};
 
@@ -27,5 +28,6 @@ public class GameDto {
         this.platform = game.getPlatform();
         this.description = game.getDescription();
         this.availableProtagonistList = game.getAvailableProtagonistList();
+        this.availableSummonList = game.getAvailableSummonsList();
     }
 }

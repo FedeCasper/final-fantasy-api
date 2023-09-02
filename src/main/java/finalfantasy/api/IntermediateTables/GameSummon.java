@@ -32,11 +32,8 @@ public class GameSummon {
 
     public GameSummon() {}
 
-    public GameSummon(Game game, Summon summon, SummonImage image) {
+    public GameSummon(Game game, Summon summon) {
         this.name = summon.getName();
-        this.summonVersion = game.getTitle();
         this.game = game;
-        this.summon = summon;
-        this.image = image;
     }
 }

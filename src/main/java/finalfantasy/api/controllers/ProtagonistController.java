@@ -76,7 +76,9 @@ public class ProtagonistController {
     public ResponseEntity<Object> createGameProtagonists () {
         ArrayList<String> lista = new ArrayList<>();
         lista.add("Pepe");
-        Game ff7 = new Game ("Fianl7","","", "PLAYSTATION_4", "FF_15_DESCRIPTION",lista);
+        ArrayList<String> lista2 = new ArrayList<>();
+        lista.add("Ifrit");
+        Game ff7 = new Game ("Fianl7","","", "PLAYSTATION_4", "FF_15_DESCRIPTION",lista, lista2);
         Protagonist cloud = new Protagonist();
         protagonistRepository.save(cloud);
         gameRepository.save(ff7);

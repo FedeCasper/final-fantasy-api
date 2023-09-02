@@ -31,10 +31,11 @@ public class GameController {
             @RequestParam String image,
             @RequestParam String platform,
             @RequestParam String gameDescription,
-            @RequestParam ArrayList<String> availableProtagonistList
+            @RequestParam ArrayList<String> availableProtagonistList,
+            @RequestParam ArrayList<String> availableSummonList
             ){
             gameRepository.save(
-                    new Game(title, releaseDate, image, platform, gameDescription, availableProtagonistList)
+                    new Game(title, releaseDate, image, platform, gameDescription, availableProtagonistList, availableSummonList)
             );
             return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -48,7 +49,7 @@ public class GameController {
 
         for(GameDto gameDto : gameDtoList){
             gameRepository.save(new Game( gameDto.getTitle(), gameDto.getReleaseDate(),gameDto.getImage(),
-                    gameDto.getPlatform(), gameDto.getDescription(), gameDto.getAvailableProtagonistList() )
+                    gameDto.getPlatform(), gameDto.getDescription(), gameDto.getAvailableProtagonistList(), gameDto.getAvailableSummonList() )
             ) ;
         }
         return new ResponseEntity<>(gameDtoList.size() + " games has benn created", HttpStatus.OK);

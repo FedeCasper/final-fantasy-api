@@ -1,10 +1,15 @@
 package finalfantasy.api.controllers;
 
+import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.IntermediateTables.GameSummon;
 import finalfantasy.api.dto.GameSummonDto;
 import finalfantasy.api.dto.SummonDto;
 import finalfantasy.api.enums.SummonType;
+import finalfantasy.api.models.Game;
+import finalfantasy.api.models.Protagonist;
 import finalfantasy.api.models.Summon;
+import finalfantasy.api.repositories.GameRepository;
+import finalfantasy.api.repositories.GameSummonRepository;
 import finalfantasy.api.repositories.SummonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +26,13 @@ import java.util.stream.Collectors;
 public class SummonController {
 
     @Autowired
+    GameRepository gameRepository;
+
+    @Autowired
     SummonRepository summonRepository;
+
+    @Autowired
+    GameSummonRepository gameSummonRepository;
 
     @GetMapping("/summons")
     public List<SummonDto> getAllSummons (){
@@ -35,10 +46,29 @@ public class SummonController {
     }
 
     @PostMapping("/newSummons")
-    public ResponseEntity<Object> createSummons (@RequestBody GameSummonDto[] array) {
-        for(GameSummonDto gameSummonDto : array){
-            summonRepository.save(new Summon(gameSummonDto.getName(), gameSummonDto.getType())) ;
+    public ResponseEntity<Object> createSummons (@RequestBody List<Summon> summonList) {
+
+        List<Game> gameList = gameRepository.findAll();
+
+        if(summonList.size() < 1){
+            return new ResponseEntity<>("The array length in the POST petition can't be 0", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(array.length + " summons has benn created", HttpStatus.OK);
+
+        for(Summon summon : summonList){
+            Summon newSummon = new Summon(
+                    summon.getName(), summon.getType()
+            );
+
+            summonRepository.save(newSummon) ;
+
+            for(Game game : gameList){
+                boolean match = game.getAvailableSummonsList().contains(newSummon.getName());
+                if(match){
+                    gameSummonRepository.save(new GameSummon(game, summon));
+                }
+                                    }
+        }
+        return new ResponseEntity<>(summonList.size() + " summons has benn created", HttpStatus.OK);
     }
 }
+
