@@ -1,10 +1,17 @@
 package finalfantasy.api.dto;
 
+import finalfantasy.api.IntermediateTables.GameProtagonist;
+import finalfantasy.api.IntermediateTables.GameSummon;
 import finalfantasy.api.models.Game;
+import finalfantasy.api.models.Location;
 import lombok.Getter;
 
 import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 public class GameDto {
@@ -19,6 +26,11 @@ public class GameDto {
     private ArrayList<String> availableProtagonistList;
     private ArrayList<String> availableSummonList;
 
+
+    private Set<GameProtagonist> gameProtagonists = new HashSet<>();
+    private Set<GameSummon> gameSummons = new HashSet<>();
+    //private Set<Location> locations = new HashSet<>();
+
     public GameDto (){};
 
     public GameDto(Game game) {
@@ -29,5 +41,22 @@ public class GameDto {
         this.description = game.getDescription();
         this.availableProtagonistList = game.getAvailableProtagonistList();
         this.availableSummonList = game.getAvailableSummonsList();
+
+    }
+
+    @Override
+    public String toString() {
+        return "GameDto{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", image='" + image + '\'' +
+                ", platform='" + platform + '\'' +
+                ", description='" + description + '\'' +
+                ", availableProtagonistList=" + availableProtagonistList +
+                ", availableSummonList=" + availableSummonList +
+                ", gameProtagonists=" + gameProtagonists +
+                ", gameSummons=" + gameSummons +
+                '}';
     }
 }

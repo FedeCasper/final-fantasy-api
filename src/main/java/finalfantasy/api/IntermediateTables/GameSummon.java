@@ -28,12 +28,12 @@ public class GameSummon {
     private Summon summon;
     private SummonImage image;
 
-
-
     public GameSummon() {}
 
     public GameSummon(Game game, Summon summon) {
         this.name = summon.getName();
         this.game = game;
+        this.summon = summon;
+        this.summonVersion = summon.getName() + "_" + game.getTitle();
     }
 }

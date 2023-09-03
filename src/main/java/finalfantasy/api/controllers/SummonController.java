@@ -58,13 +58,12 @@ public class SummonController {
             Summon newSummon = new Summon(
                     summon.getName(), summon.getType()
             );
-
             summonRepository.save(newSummon) ;
 
             for(Game game : gameList){
                 boolean match = game.getAvailableSummonsList().contains(newSummon.getName());
                 if(match){
-                    gameSummonRepository.save(new GameSummon(game, summon));
+                    gameSummonRepository.save(new GameSummon(game, newSummon));
                 }
                                     }
         }
