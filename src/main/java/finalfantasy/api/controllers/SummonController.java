@@ -62,10 +62,16 @@ public class SummonController {
 
             for(Game game : gameList){
                 boolean match = game.getAvailableSummonsList().contains(newSummon.getName());
+                Set<GameSummon> newGameSummonsSet = new HashSet<>();
                 if(match){
-                    gameSummonRepository.save(new GameSummon(game, newSummon));
+                    GameSummon newGameSummon = new GameSummon(game, newSummon);
+                    gameSummonRepository.save(newGameSummon);
+                    newGameSummonsSet.add(newGameSummon);
+                    game.setGameSummons(newGameSummonsSet);
+                    gameRepository.save(game);
                 }
-                                    }
+
+            }
         }
         return new ResponseEntity<>(summonList.size() + " summons has benn created", HttpStatus.OK);
     }

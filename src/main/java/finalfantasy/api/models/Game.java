@@ -24,8 +24,6 @@ public class Game {
     private String platform;
     @Column(length = 1000)
     private String description;
-    private ArrayList<String> availableProtagonistList;
-    private ArrayList<String> availableSummonsList;
 
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     private Set<GameProtagonist> gameProtagonists = new HashSet<>();
@@ -36,6 +34,8 @@ public class Game {
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     private Set<Location> locations = new HashSet<>();
 
+    private ArrayList<String> availableProtagonistList;
+    private ArrayList<String> availableSummonsList;
 
     public Game (){};
 
@@ -49,6 +49,7 @@ public class Game {
         this.availableSummonsList = availableSummonsList;
     }
 
+
     @Override
     public String toString() {
         return "Game{" +
@@ -58,11 +59,11 @@ public class Game {
                 ", image='" + image + '\'' +
                 ", platform='" + platform + '\'' +
                 ", description='" + description + '\'' +
-                ", availableProtagonistList=" + availableProtagonistList +
-                ", availableSummonsList=" + availableSummonsList +
                 ", gameProtagonists=" + gameProtagonists +
                 ", gameSummons=" + gameSummons +
                 ", locations=" + locations +
+                ", availableProtagonistList=" + availableProtagonistList +
+                ", availableSummonsList=" + availableSummonsList +
                 '}';
     }
 }

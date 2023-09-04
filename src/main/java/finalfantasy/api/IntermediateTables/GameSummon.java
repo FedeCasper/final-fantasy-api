@@ -1,6 +1,7 @@
 package finalfantasy.api.IntermediateTables;
 
 import finalfantasy.api.enums.SummonImage;
+import finalfantasy.api.enums.SummonType;
 import finalfantasy.api.models.Game;
 import finalfantasy.api.models.Protagonist;
 import finalfantasy.api.models.Summon;
@@ -26,12 +27,14 @@ public class GameSummon {
     private Game game;
     @ManyToOne(fetch = FetchType.EAGER)
     private Summon summon;
+    private SummonType type;
     private SummonImage image;
 
     public GameSummon() {}
 
     public GameSummon(Game game, Summon summon) {
         this.name = summon.getName();
+        this.type = summon.getType();
         this.game = game;
         this.summon = summon;
         this.summonVersion = summon.getName() + "_" + game.getTitle();

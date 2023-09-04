@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Getter
 public class GameDto {
@@ -28,7 +29,7 @@ public class GameDto {
 
 
     private Set<GameProtagonist> gameProtagonists = new HashSet<>();
-    private Set<GameSummon> gameSummons = new HashSet<>();
+    private Set<GameSummonDto> gameSummons = new HashSet<>();
     //private Set<Location> locations = new HashSet<>();
 
     public GameDto (){};
@@ -41,7 +42,7 @@ public class GameDto {
         this.description = game.getDescription();
         this.availableProtagonistList = game.getAvailableProtagonistList();
         this.availableSummonList = game.getAvailableSummonsList();
-
+        this.gameSummons = game.getGameSummons().stream().map(gameSummon -> new GameSummonDto(gameSummon.getName(), gameSummon.getType())).collect(Collectors.toSet());
     }
 
     @Override
