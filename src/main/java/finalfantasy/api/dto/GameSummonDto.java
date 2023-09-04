@@ -11,12 +11,14 @@ public class GameSummonDto {
     private long id;
     private String name;
     private SummonType type;
+    //private GameSummon gameSummon;
 
     public GameSummonDto() {
     }
 
-    public GameSummonDto(String name, SummonType summonType) {
-        this.name = name;
-        this.type = summonType;
+    public GameSummonDto(GameSummon gameSummon) {
+        this.id = gameSummon.getId();
+        this.name = gameSummon.getName();
+        this.type = gameSummon.getType();
     }
 }

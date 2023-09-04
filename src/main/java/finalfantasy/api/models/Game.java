@@ -36,10 +36,11 @@ public class Game {
 
     private ArrayList<String> availableProtagonistList;
     private ArrayList<String> availableSummonsList;
+    private ArrayList<String> availableLocationsList;
 
     public Game (){};
 
-    public Game(String title, String releaseDate, String image, String platform, String description, ArrayList<String> availableProtagonistList, ArrayList<String> availableSummonsList) {
+    public Game(String title, String releaseDate, String image, String platform, String description, ArrayList<String> availableProtagonistList, ArrayList<String> availableSummonsList, ArrayList<String> availableLocationsList) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.image = image;
@@ -47,6 +48,7 @@ public class Game {
         this.description = description;
         this.availableProtagonistList = availableProtagonistList;
         this.availableSummonsList = availableSummonsList;
+        this.availableLocationsList = availableLocationsList;
     }
 
 

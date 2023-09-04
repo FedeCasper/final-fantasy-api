@@ -35,8 +35,10 @@ public class ApiApplication {
 			miArrayList.add("Jo");
 			ArrayList<String> miArrayList2 = new ArrayList<>();
 			miArrayList2.add("Jo");
+			ArrayList<String> miArrayList3 = new ArrayList<>();
+			miArrayList2.add("Balamb");
 
-			Game game1 = new Game("FF1", "FF2", "FF", "ss", "s", miArrayList, miArrayList2);
+			Game game1 = new Game("FF1", "FF2", "FF", "ss", "s", miArrayList, miArrayList2, miArrayList3);
 			Protagonist protagonist = new Protagonist("j", "s", "s","f","d","d", GameEdition.FINAL_FANTASY_I, "s");
 			Summon summon = new Summon("p", SummonType.EARTH);
 

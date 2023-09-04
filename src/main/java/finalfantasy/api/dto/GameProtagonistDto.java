@@ -14,12 +14,14 @@ import java.util.Set;
 @Getter
 public class GameProtagonistDto {
 
+    private long id;
     private String name;
     private String edition;
 
     public GameProtagonistDto() {}
 
     public GameProtagonistDto(GameProtagonist gameProtagonist) {
+        this.id = gameProtagonist.getId();
         this.name = gameProtagonist.getName();
         this.edition = gameProtagonist.getGameEdition();
     }

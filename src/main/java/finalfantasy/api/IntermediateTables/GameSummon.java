@@ -33,6 +33,7 @@ public class GameSummon {
     public GameSummon() {}
 
     public GameSummon(Game game, Summon summon) {
+
         this.name = summon.getName();
         this.type = summon.getType();
         this.game = game;
