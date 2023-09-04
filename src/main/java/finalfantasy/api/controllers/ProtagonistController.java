@@ -14,7 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -63,8 +65,13 @@ public class ProtagonistController {
 
             for(Game game : gameList){
                 boolean match = game.getAvailableProtagonistList().contains(newProtagonist.getName());
+                Set<GameProtagonist> setGameProtagonist = new HashSet<>();
                 if(match){
-                   gameProtagonistRepository.save( new GameProtagonist(game, newProtagonist) );
+                   GameProtagonist newGameProtagonist = new GameProtagonist(game, newProtagonist);
+                   gameProtagonistRepository.save( newGameProtagonist );
+                   setGameProtagonist.add(newGameProtagonist);
+                   game.setGameProtagonists(setGameProtagonist);
+                   gameRepository.save(game);
                 }
             }
 
