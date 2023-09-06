@@ -87,7 +87,7 @@ public class ProtagonistController {
         lista.add("Ifrit");
         ArrayList<String> lista3 = new ArrayList<>();
         lista.add("Balamb");
-        Game ff7 = new Game ("Fianl7","","", "PLAYSTATION_4", "FF_15_DESCRIPTION",lista, lista2, lista3);
+        Game ff7 = new Game (GameEdition.FINAL_FANTASY_VII,"","", "PLAYSTATION_4", "FF_15_DESCRIPTION",lista, lista2, lista3);
         Protagonist cloud = new Protagonist();
         protagonistRepository.save(cloud);
         gameRepository.save(ff7);

@@ -1,5 +1,6 @@
 package finalfantasy.api.IntermediateTables;
 
+import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.models.Game;
 import finalfantasy.api.models.Protagonist;
 import lombok.Getter;
@@ -19,7 +20,7 @@ public class GameProtagonist {
     private long id;
 
     private String name;
-    private String gameEdition;
+    private GameEdition gameEdition;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Game game;

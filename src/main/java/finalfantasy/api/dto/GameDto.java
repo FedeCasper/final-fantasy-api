@@ -2,6 +2,7 @@ package finalfantasy.api.dto;
 
 import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.IntermediateTables.GameSummon;
+import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.models.Game;
 import finalfantasy.api.models.Location;
 import lombok.Getter;
@@ -18,7 +19,7 @@ import java.util.stream.Collectors;
 public class GameDto {
 
     private long id;
-    private String title;
+    private GameEdition title;
     private String releaseDate;
     private String image;
     private String platform;
@@ -31,7 +32,7 @@ public class GameDto {
 
     private Set<GameProtagonistDto> gameProtagonists = new HashSet<>();
     private Set<GameSummonDto> gameSummons = new HashSet<>();
-    //private Set<Location> locations = new HashSet<>();
+    private Set<LocationDto> locations = new HashSet<>();
 
     public GameDto (){};
 
@@ -47,6 +48,7 @@ public class GameDto {
         this.availableLocationsList = game.getAvailableLocationsList();
         this.gameSummons = game.getGameSummons().stream().map(gameSummon -> new GameSummonDto(gameSummon)).collect(Collectors.toSet());
         this.gameProtagonists = game.getGameProtagonists().stream().map(gameProtagonist -> new GameProtagonistDto(gameProtagonist)).collect(Collectors.toSet());
+        this.locations = game.getLocations().stream().map(location -> new LocationDto(location)).collect(Collectors.toSet());
     }
 
     @Override
@@ -63,6 +65,7 @@ public class GameDto {
                 ", availableLocationsList=" + availableLocationsList +
                 ", gameProtagonists=" + gameProtagonists +
                 ", gameSummons=" + gameSummons +
+                ", locations=" + locations +
                 '}';
     }
 }

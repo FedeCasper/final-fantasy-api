@@ -1,6 +1,7 @@
 package finalfantasy.api.controllers;
 
 import finalfantasy.api.dto.GameDto;
+import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.models.Game;
 import finalfantasy.api.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class GameController {
 
     @PostMapping("/newGame")
     public ResponseEntity<Object> createNewGame(
-            @RequestParam String title,
+            @RequestParam GameEdition title,
             @RequestParam String releaseDate,
             @RequestParam String image,
             @RequestParam String platform,

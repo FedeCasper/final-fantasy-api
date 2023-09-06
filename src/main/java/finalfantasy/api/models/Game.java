@@ -2,6 +2,7 @@ package finalfantasy.api.models;
 
 import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.IntermediateTables.GameSummon;
+import finalfantasy.api.enums.GameEdition;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -18,7 +19,7 @@ public class Game {
     @GenericGenerator(name = "native", strategy = "native")
 
     private long id;
-    private String title;
+    private GameEdition title;
     private String releaseDate;
     private String image;
     private String platform;
@@ -40,7 +41,7 @@ public class Game {
 
     public Game (){};
 
-    public Game(String title, String releaseDate, String image, String platform, String description, ArrayList<String> availableProtagonistList, ArrayList<String> availableSummonsList, ArrayList<String> availableLocationsList) {
+    public Game(GameEdition title, String releaseDate, String image, String platform, String description, ArrayList<String> availableProtagonistList, ArrayList<String> availableSummonsList, ArrayList<String> availableLocationsList) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.image = image;
