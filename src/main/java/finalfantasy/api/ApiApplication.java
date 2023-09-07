@@ -31,20 +31,34 @@ public class ApiApplication {
 			System.out.println("Magic has started!");
 			System.out.println("------------------");
 
-			/*ArrayList<String> miArrayList = new ArrayList<>();
+			String version = "final fantasy XX";
+			//GameEdition juegoNuevo = GameEdition.createGameEditionFromString(version);
+
+			String converted = version.toUpperCase().replaceAll(" ", "_");
+
+			System.out.println();
+
+
+
+			ArrayList<String> miArrayList = new ArrayList<>();
 			miArrayList.add("Jo");
 			ArrayList<String> miArrayList2 = new ArrayList<>();
 			miArrayList2.add("Jo");
 			ArrayList<String> miArrayList3 = new ArrayList<>();
 			miArrayList2.add("Balamb");
+			ArrayList<String> miArrayList4 = new ArrayList<>();
+			miArrayList2.add("Balamb");
 
-			Game game1 = new Game(GameEdition.FINAL_FANTASY_I, "FF2", "FF", "ss", "s", miArrayList, miArrayList2, miArrayList3);
+			Game game1 = new Game("Fina", "FF2", "FF", "ss", "s", miArrayList, miArrayList2, miArrayList3, miArrayList4);
 			Protagonist protagonist = new Protagonist("j", "s", "s","f","d","d", "s");
 			Summon summon = new Summon("p", SummonType.EARTH);
 
+
+
+
 			GameDto gameDto = new GameDto(game1);
 
-			System.out.println(gameDto);*/
+
 
 		};
 

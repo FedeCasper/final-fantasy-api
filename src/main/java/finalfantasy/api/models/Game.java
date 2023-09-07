@@ -14,12 +14,12 @@ import java.util.*;
 @Getter
 @Setter
 public class Game {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-
     private long id;
-    private GameEdition title;
+    private String title;
     private String releaseDate;
     private String image;
     private String platform;
@@ -28,6 +28,7 @@ public class Game {
     private ArrayList<String> availableProtagonistList;
     private ArrayList<String> availableSummonsList;
     private ArrayList<String> availableLocationsList;
+    @Column(length = 1000)
     private ArrayList<String> availableJobsList;
 
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
@@ -43,15 +44,16 @@ public class Game {
 
     public Game (){};
 
-    public Game(GameEdition title,
-                String releaseDate,
-                String image,
-                String platform,
-                String description,
-                ArrayList<String> availableProtagonistList,
-                ArrayList<String> availableSummonsList,
-                ArrayList<String> availableLocationsList,
-                ArrayList<String> availableJobsList) {
+    public Game(
+            String title,
+            String releaseDate,
+            String image,
+            String platform,
+            String description,
+            ArrayList<String> availableProtagonistList,
+            ArrayList<String> availableSummonsList,
+            ArrayList<String> availableLocationsList,
+            ArrayList<String> availableJobsList) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.image = image;

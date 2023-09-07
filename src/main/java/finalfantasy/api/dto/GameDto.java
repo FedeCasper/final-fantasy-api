@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class GameDto {
 
     private long id;
-    private GameEdition title;
+    private String title;
     private String releaseDate;
     private String image;
     private String platform;

@@ -20,7 +20,7 @@ public class GameProtagonist {
     private long id;
 
     private String name;
-    private GameEdition gameEdition;
+    private String gameEdition;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Game game;

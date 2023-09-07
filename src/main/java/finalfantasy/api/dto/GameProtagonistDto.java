@@ -16,8 +16,7 @@ public class GameProtagonistDto {
 
     private long id;
     private String name;
-    private GameEdition gameEdition;
-    private String job;
+    private String gameEdition;
 
     public GameProtagonistDto() {}
 

@@ -21,10 +21,5 @@ public enum GameEdition {
     FINAL_FANTASY_TACTICS,
     FINAL_FANTASY_DISSIDIA;
 
-
-    public static GameEdition createGameEditionFromString(String title){
-        GameEdition newGameEdition = GameEdition.valueOf(title);
-        return newGameEdition;
-    }
 }
 
