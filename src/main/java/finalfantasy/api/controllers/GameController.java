@@ -27,17 +27,28 @@ public class GameController {
 
     @PostMapping("/newGame")
     public ResponseEntity<Object> createNewGame(
-            @RequestParam GameEdition title,
+            @RequestParam String title,
             @RequestParam String releaseDate,
             @RequestParam String image,
             @RequestParam String platform,
             @RequestParam String gameDescription,
             @RequestParam ArrayList<String> availableProtagonistList,
             @RequestParam ArrayList<String> availableSummonList,
-            @RequestParam ArrayList<String> availableLocationsList
+            @RequestParam ArrayList<String> availableLocationsList,
+            @RequestParam ArrayList<String> availableJobsList
             ){
             gameRepository.save(
-                    new Game(title, releaseDate, image, platform, gameDescription, availableProtagonistList, availableSummonList, availableLocationsList)
+                    new Game(
+                            GameEdition.createGameEditionFromString(title),
+                            releaseDate,
+                            image,
+                            platform,
+                            gameDescription,
+                            availableProtagonistList,
+                            availableSummonList,
+                            availableLocationsList,
+                            availableJobsList
+                    )
             );
             return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -50,8 +61,17 @@ public class GameController {
         }
 
         for(GameDto gameDto : gameDtoList){
-            gameRepository.save(new Game( gameDto.getTitle(), gameDto.getReleaseDate(),gameDto.getImage(),
-                    gameDto.getPlatform(), gameDto.getDescription(), gameDto.getAvailableProtagonistList(), gameDto.getAvailableSummonList(), gameDto.getAvailableLocationsList() )
+            gameRepository.save(
+                    new Game(
+                            gameDto.getTitle(),
+                            gameDto.getReleaseDate(),
+                            gameDto.getImage(),
+                            gameDto.getPlatform(),
+                            gameDto.getDescription(),
+                            gameDto.getAvailableProtagonistList(),
+                            gameDto.getAvailableSummonList(),
+                            gameDto.getAvailableLocationsList(),
+                            gameDto.getAvailableJobsList())
             ) ;
         }
         return new ResponseEntity<>(gameDtoList.size() + " games has benn created", HttpStatus.OK);

@@ -25,6 +25,10 @@ public class Game {
     private String platform;
     @Column(length = 1000)
     private String description;
+    private ArrayList<String> availableProtagonistList;
+    private ArrayList<String> availableSummonsList;
+    private ArrayList<String> availableLocationsList;
+    private ArrayList<String> availableJobsList;
 
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     private Set<GameProtagonist> gameProtagonists = new HashSet<>();
@@ -35,13 +39,19 @@ public class Game {
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     private Set<Location> locations = new HashSet<>();
 
-    private ArrayList<String> availableProtagonistList;
-    private ArrayList<String> availableSummonsList;
-    private ArrayList<String> availableLocationsList;
+
 
     public Game (){};
 
-    public Game(GameEdition title, String releaseDate, String image, String platform, String description, ArrayList<String> availableProtagonistList, ArrayList<String> availableSummonsList, ArrayList<String> availableLocationsList) {
+    public Game(GameEdition title,
+                String releaseDate,
+                String image,
+                String platform,
+                String description,
+                ArrayList<String> availableProtagonistList,
+                ArrayList<String> availableSummonsList,
+                ArrayList<String> availableLocationsList,
+                ArrayList<String> availableJobsList) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.image = image;
@@ -50,23 +60,7 @@ public class Game {
         this.availableProtagonistList = availableProtagonistList;
         this.availableSummonsList = availableSummonsList;
         this.availableLocationsList = availableLocationsList;
+        this.availableJobsList = availableJobsList;
     }
 
-
-    @Override
-    public String toString() {
-        return "Game{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", releaseDate='" + releaseDate + '\'' +
-                ", image='" + image + '\'' +
-                ", platform='" + platform + '\'' +
-                ", description='" + description + '\'' +
-                ", gameProtagonists=" + gameProtagonists +
-                ", gameSummons=" + gameSummons +
-                ", locations=" + locations +
-                ", availableProtagonistList=" + availableProtagonistList +
-                ", availableSummonsList=" + availableSummonsList +
-                '}';
-    }
 }

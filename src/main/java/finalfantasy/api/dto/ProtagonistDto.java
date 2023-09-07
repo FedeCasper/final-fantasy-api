@@ -17,7 +17,6 @@ public class ProtagonistDto {
     @Column(length = 1000)
     private String description;
     private String race;
-    private GameEdition origin;
     private String imageUrl;
 
 
@@ -31,7 +30,6 @@ public class ProtagonistDto {
         this.job = protagonist.getJob();
         this.description = protagonist.getDescription();
         this.race = protagonist.getRace();
-        this.origin = protagonist.getOrigin();
         this.imageUrl = protagonist.getImageUrl();
     }
 

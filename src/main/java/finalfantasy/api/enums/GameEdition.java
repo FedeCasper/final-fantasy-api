@@ -19,6 +19,12 @@ public enum GameEdition {
     FINAL_FANTASY_XIII_LIGHTNING_RETURNS,
     FINAL_FANTASY_XV,
     FINAL_FANTASY_TACTICS,
-    FINAL_FANTASY_DISSIDIA
+    FINAL_FANTASY_DISSIDIA;
 
+
+    public static GameEdition createGameEditionFromString(String title){
+        GameEdition newGameEdition = GameEdition.valueOf(title);
+        return newGameEdition;
+    }
 }
+

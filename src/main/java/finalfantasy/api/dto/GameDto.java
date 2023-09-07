@@ -28,6 +28,7 @@ public class GameDto {
     private ArrayList<String> availableProtagonistList;
     private ArrayList<String> availableSummonList;
     private ArrayList<String> availableLocationsList;
+    private ArrayList<String> availableJobsList;
 
 
     private Set<GameProtagonistDto> gameProtagonists = new HashSet<>();
@@ -46,26 +47,10 @@ public class GameDto {
         this.availableProtagonistList = game.getAvailableProtagonistList();
         this.availableSummonList = game.getAvailableSummonsList();
         this.availableLocationsList = game.getAvailableLocationsList();
+        this.availableJobsList = game.getAvailableJobsList();
         this.gameSummons = game.getGameSummons().stream().map(gameSummon -> new GameSummonDto(gameSummon)).collect(Collectors.toSet());
         this.gameProtagonists = game.getGameProtagonists().stream().map(gameProtagonist -> new GameProtagonistDto(gameProtagonist)).collect(Collectors.toSet());
         this.locations = game.getLocations().stream().map(location -> new LocationDto(location)).collect(Collectors.toSet());
     }
 
-    @Override
-    public String toString() {
-        return "GameDto{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", releaseDate='" + releaseDate + '\'' +
-                ", image='" + image + '\'' +
-                ", platform='" + platform + '\'' +
-                ", description='" + description + '\'' +
-                ", availableProtagonistList=" + availableProtagonistList +
-                ", availableSummonList=" + availableSummonList +
-                ", availableLocationsList=" + availableLocationsList +
-                ", gameProtagonists=" + gameProtagonists +
-                ", gameSummons=" + gameSummons +
-                ", locations=" + locations +
-                '}';
-    }
 }

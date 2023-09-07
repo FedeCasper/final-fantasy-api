@@ -26,8 +26,6 @@ public class Protagonist {
     @Column(length = 1000)
     private String description;
     private String race;
-    @Enumerated(EnumType.STRING)
-    private GameEdition origin;
     private String imageUrl;
 
     @OneToMany(mappedBy = "protagonist", fetch = FetchType.EAGER)
@@ -35,14 +33,13 @@ public class Protagonist {
 
     public Protagonist(){}
 
-    public Protagonist(String name, String lastName, String gender, String job, String description, String race, GameEdition origin, String imageUrl) {
+    public Protagonist(String name, String lastName, String gender, String job, String description, String race, String imageUrl) {
         this.name = name;
         this.lastName = lastName;
         this.gender = gender;
         this.job = job;
         this.description = description;
         this.race = race;
-        this.origin = origin;
         this.imageUrl = imageUrl;
     }
 

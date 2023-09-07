@@ -41,7 +41,7 @@ public class ProtagonistController {
     public ResponseEntity<Object> createProtagonist (
             @RequestParam String name, @RequestParam String lastName, @RequestParam String gender, @RequestParam String job,
             @RequestParam String protagonistDescription, @RequestParam String race,@RequestParam GameEdition gameEdition, @RequestParam String url){
-        protagonistRepository.save(new Protagonist(name, lastName, gender, job, protagonistDescription , race,gameEdition, url)) ;
+        protagonistRepository.save(new Protagonist(name, lastName, gender, job, protagonistDescription , race, url)) ;
         return new ResponseEntity<>("A new Protagonist has been Created", HttpStatus.OK);
     }
 
@@ -56,9 +56,14 @@ public class ProtagonistController {
 
         for(Protagonist protagonist : protagonistList){
             Protagonist newProtagonist = new Protagonist(
-                    protagonist.getName(), protagonist.getLastName(),protagonist.getGender(),
-                    protagonist.getJob(), protagonist.getDescription(), protagonist.getRace(),
-                    protagonist.getOrigin(), protagonist.getImageUrl() );
+                    protagonist.getName(),
+                    protagonist.getLastName(),
+                    protagonist.getGender(),
+                    protagonist.getJob(),
+                    protagonist.getDescription(),
+                    protagonist.getRace(),
+                    //protagonist.getGameEdition(),
+                    protagonist.getImageUrl() );
                     protagonistRepository.save(newProtagonist
                     );
 
@@ -79,7 +84,7 @@ public class ProtagonistController {
         return new ResponseEntity<>(protagonistList.size() + " protagonists has benn created", HttpStatus.OK);
     }
 
-    @PostMapping("/newGameProtagonists")
+    /*@PostMapping("/newGameProtagonists")
     public ResponseEntity<Object> createGameProtagonists () {
         ArrayList<String> lista = new ArrayList<>();
         lista.add("Pepe");
@@ -93,5 +98,5 @@ public class ProtagonistController {
         gameRepository.save(ff7);
         gameProtagonistRepository.save(new GameProtagonist( ff7 , cloud));
         return new ResponseEntity<>("GameProtagonist created" , HttpStatus.CREATED);
-    }
+    }*/
 }
