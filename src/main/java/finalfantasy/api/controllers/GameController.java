@@ -4,6 +4,7 @@ import finalfantasy.api.dto.GameDto;
 import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.models.Game;
 import finalfantasy.api.repositories.GameRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -77,40 +78,13 @@ public class GameController {
     @PatchMapping("/updateGame/{gameId}")
     public ResponseEntity<Object> updateGame(@PathVariable Long gameId, @RequestBody GameDto gameDto){
         Game originalGame = gameRepository.findById(gameId).orElse(null);
-
         if(originalGame != null){
-            if(gameDto.getTitle() != null){
-                originalGame.setTitle(gameDto.getTitle());
-            }
-            if(gameDto.getImage() != null){
-                originalGame.setImage(gameDto.getImage());
-            }
-            if(gameDto.getPlatform() != null){
-                originalGame.setPlatform(gameDto.getPlatform());
-            }
-            if(gameDto.getReleaseDate() != null){
-                originalGame.setReleaseDate(gameDto.getReleaseDate());
-            }
-            if(gameDto.getDescription() != null){
-                originalGame.setDescription(gameDto.getDescription());
-            }
-            if(gameDto.getAvailableProtagonistList() != null){
-                originalGame.setAvailableProtagonistList(gameDto.getAvailableProtagonistList());
-            }
-            if(gameDto.getAvailableLocationsList() != null){
-                originalGame.setAvailableLocationsList(gameDto.getAvailableLocationsList());
-            }
-            if(gameDto.getAvailableSummonList() != null){
-                originalGame.setAvailableSummonsList(gameDto.getAvailableSummonList());
-            }
-            if(gameDto.getAvailableJobsList() != null){
-                originalGame.setAvailableJobsList(gameDto.getAvailableJobsList());
-            }
+            gameDto.setId(originalGame);
+            BeanUtils.copyProperties(gameDto, originalGame);
             gameRepository.save(originalGame);
-            return new ResponseEntity<Object>("El juego h sido editado", HttpStatus.OK);
+            return new ResponseEntity<Object>("El juego ha sido editado", HttpStatus.OK);
         }else{
             return new ResponseEntity<Object>("El juego a editar no existe", HttpStatus.NOT_FOUND);
         }
-
     }
 }

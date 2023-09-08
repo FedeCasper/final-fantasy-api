@@ -53,9 +53,6 @@ public class ApiApplication {
 			Protagonist protagonist = new Protagonist("j", "s", "s","f","d","d", "s");
 			Summon summon = new Summon("p", SummonType.EARTH);
 
-
-
-
 			GameDto gameDto = new GameDto(game1);
 
 

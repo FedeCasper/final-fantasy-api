@@ -53,4 +53,7 @@ public class GameDto {
         this.locations = game.getLocations().stream().map(location -> new LocationDto(location)).collect(Collectors.toSet());
     }
 
+    public void setId(Game game) {
+        this.id = game.getId();
+    }
 }

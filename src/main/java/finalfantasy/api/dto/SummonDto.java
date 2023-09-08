@@ -24,4 +24,8 @@ public class SummonDto {
         this.name = summon.getName();
         this.type = summon.getType();
     }
+
+    public void setId(Summon summon) {
+        this.id = summon.getId();
+    }
 }

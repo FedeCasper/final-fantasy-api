@@ -33,5 +33,7 @@ public class ProtagonistDto {
         this.imageUrl = protagonist.getImageUrl();
     }
 
-
+    public void setId(Protagonist protagonist) {
+        this.id = protagonist.getId();
+    }
 }

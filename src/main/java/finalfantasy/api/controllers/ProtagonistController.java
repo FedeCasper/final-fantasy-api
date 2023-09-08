@@ -1,13 +1,16 @@
 package finalfantasy.api.controllers;
 
 import finalfantasy.api.IntermediateTables.GameProtagonist;
+import finalfantasy.api.dto.LocationDto;
 import finalfantasy.api.dto.ProtagonistDto;
 import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.models.Game;
+import finalfantasy.api.models.Location;
 import finalfantasy.api.models.Protagonist;
 import finalfantasy.api.repositories.GameProtagonistRepository;
 import finalfantasy.api.repositories.GameRepository;
 import finalfantasy.api.repositories.ProtagonistRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +40,7 @@ public class ProtagonistController {
         return protagonistRepository.findAll().stream().map( protagonist -> new ProtagonistDto(protagonist)).collect(Collectors.toList());
     }
 
+
     @PostMapping("/newProtagonist")
     public ResponseEntity<Object> createProtagonist (
             @RequestParam String name, @RequestParam String lastName, @RequestParam String gender, @RequestParam String job,
@@ -44,6 +48,7 @@ public class ProtagonistController {
         protagonistRepository.save(new Protagonist(name, lastName, gender, job, protagonistDescription , race, url)) ;
         return new ResponseEntity<>("A new Protagonist has been Created", HttpStatus.OK);
     }
+
 
     @PostMapping("/newProtagonists")
     public ResponseEntity<Object> createProtagonists (@RequestBody List<Protagonist> protagonistList) {
@@ -84,19 +89,16 @@ public class ProtagonistController {
         return new ResponseEntity<>(protagonistList.size() + " protagonists has benn created", HttpStatus.OK);
     }
 
-    /*@PostMapping("/newGameProtagonists")
-    public ResponseEntity<Object> createGameProtagonists () {
-        ArrayList<String> lista = new ArrayList<>();
-        lista.add("Pepe");
-        ArrayList<String> lista2 = new ArrayList<>();
-        lista.add("Ifrit");
-        ArrayList<String> lista3 = new ArrayList<>();
-        lista.add("Balamb");
-        Game ff7 = new Game (GameEdition.FINAL_FANTASY_VII,"","", "PLAYSTATION_4", "FF_15_DESCRIPTION",lista, lista2, lista3);
-        Protagonist cloud = new Protagonist();
-        protagonistRepository.save(cloud);
-        gameRepository.save(ff7);
-        gameProtagonistRepository.save(new GameProtagonist( ff7 , cloud));
-        return new ResponseEntity<>("GameProtagonist created" , HttpStatus.CREATED);
-    }*/
+    @PatchMapping("/updateProtagonist/{protagonistId}")
+    public ResponseEntity<Object> updateLocation(@PathVariable Long protagonistId, @RequestBody ProtagonistDto protagonistDto){
+        Protagonist originalProtagonist = protagonistRepository.findById(protagonistId).orElse(null);
+        if(originalProtagonist != null){
+            protagonistDto.setId(originalProtagonist);
+            BeanUtils.copyProperties(protagonistDto, originalProtagonist);
+            protagonistRepository.save(originalProtagonist);
+            return new ResponseEntity<Object>("El personaje ha sido editado", HttpStatus.OK);
+        }else{
+            return new ResponseEntity<Object>("El personaje a editar no existe", HttpStatus.NOT_FOUND);
+        }
+    }
 }

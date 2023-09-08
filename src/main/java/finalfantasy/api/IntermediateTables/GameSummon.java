@@ -1,15 +1,14 @@
 package finalfantasy.api.IntermediateTables;
 
-import finalfantasy.api.enums.SummonImage;
 import finalfantasy.api.enums.SummonType;
 import finalfantasy.api.models.Game;
-import finalfantasy.api.models.Protagonist;
 import finalfantasy.api.models.Summon;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -28,7 +27,7 @@ public class GameSummon {
     @ManyToOne(fetch = FetchType.EAGER)
     private Summon summon;
     private SummonType type;
-    private SummonImage image;
+    private List<String> image;
 
     public GameSummon() {}
 

@@ -1,8 +1,6 @@
 package finalfantasy.api.models;
 
 import finalfantasy.api.enums.GameEdition;
-import finalfantasy.api.enums.LocationDescription;
-import finalfantasy.api.enums.LocationImage;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -23,16 +21,16 @@ public class Location {
 
     private String name;
     private GameEdition origin;
-    private LocationDescription description;
+    private String description;
     @ElementCollection
-    private Set<LocationImage> locationImageSet = new HashSet<>();
+    private Set<String> locationImageSet = new HashSet<>();
     @ManyToOne(fetch = FetchType.EAGER)
     private Game game;
 
     public Location() {
     }
 
-    public Location(String name, GameEdition origin, LocationDescription description, Set<LocationImage> locationImageSet, Game game) {
+    public Location(String name, GameEdition origin, String description, Set<String> locationImageSet, Game game) {
         this.name = name;
         this.origin = origin;
         this.description = description;
