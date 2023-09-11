@@ -27,7 +27,7 @@ public class GameSummon {
     @ManyToOne(fetch = FetchType.EAGER)
     private Summon summon;
     private SummonType type;
-    private List<String> image;
+    //private List<String> image;
 
     public GameSummon() {}
 

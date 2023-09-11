@@ -5,6 +5,7 @@ import finalfantasy.api.IntermediateTables.GameSummon;
 import finalfantasy.api.dto.GameDto;
 import finalfantasy.api.enums.*;
 import finalfantasy.api.models.*;
+import finalfantasy.api.models.Character;
 import finalfantasy.api.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -40,7 +41,7 @@ public class ApiApplication {
 
 
 
-			ArrayList<String> miArrayList = new ArrayList<>();
+			/*ArrayList<String> miArrayList = new ArrayList<>();
 			miArrayList.add("Jo");
 			ArrayList<String> miArrayList2 = new ArrayList<>();
 			miArrayList2.add("Jo");
@@ -53,7 +54,7 @@ public class ApiApplication {
 			Protagonist protagonist = new Protagonist("j", "s", "s","f","d","d", "s");
 			Summon summon = new Summon("p", SummonType.EARTH);
 
-			GameDto gameDto = new GameDto(game1);
+			GameDto gameDto = new GameDto(game1);*/
 
 
 
