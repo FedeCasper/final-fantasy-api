@@ -21,10 +21,8 @@ public class Character {
     // Personal data
     private String name;
     private String lastName;
+    @Column(length = 1000)
     private String description;
-    // Biographical information
-    private String home;
-    private String occupation;
     // Physical description
     private String gender;
     private String race;
@@ -37,12 +35,10 @@ public class Character {
     public Character() {
     }
 
-    public Character(String name, String lastName, String description, String home, String occupation, String gender, String race, String imageUrl, CharacterType characterType) {
+    public Character(String name, String lastName, String description, String gender, String race, String imageUrl, CharacterType characterType) {
         this.name = name;
         this.lastName = lastName;
         this.description = description;
-        this.home = home;
-        this.occupation = occupation;
         this.gender = gender;
         this.race = race;
         this.imageUrl = imageUrl;

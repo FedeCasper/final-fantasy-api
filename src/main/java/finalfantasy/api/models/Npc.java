@@ -23,7 +23,7 @@ public class Npc extends Character{
     public Npc() {
     }
 
-    public Npc(String name, String lastName, String description, String home, String occupation, String gender, String race, String imageUrl, CharacterType characterType) {
-        super(name, lastName, description, home, occupation, gender, race, imageUrl, characterType);
+    public Npc(String name, String lastName, String description, String gender, String race, String imageUrl, CharacterType characterType) {
+        super(name, lastName, description, gender, race, imageUrl, characterType);
     }
 }

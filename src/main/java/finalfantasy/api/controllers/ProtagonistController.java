@@ -3,6 +3,7 @@ package finalfantasy.api.controllers;
 import finalfantasy.api.IntermediateTables.GameProtagonist;
 import finalfantasy.api.dto.LocationDto;
 import finalfantasy.api.dto.ProtagonistDto;
+import finalfantasy.api.enums.CharacterType;
 import finalfantasy.api.enums.GameEdition;
 import finalfantasy.api.models.Game;
 import finalfantasy.api.models.Location;
@@ -43,9 +44,29 @@ public class ProtagonistController {
 
     @PostMapping("/newProtagonist")
     public ResponseEntity<Object> createProtagonist (
-            @RequestParam String name, @RequestParam String lastName, @RequestParam String gender, @RequestParam String job,
-            @RequestParam String protagonistDescription, @RequestParam String race,@RequestParam GameEdition gameEdition, @RequestParam String url){
-        protagonistRepository.save(new Protagonist(name, lastName, gender, job, protagonistDescription , race, url)) ;
+            @RequestParam String name,
+            @RequestParam String lastName,
+            @RequestParam String description,
+            @RequestParam String gender,
+            @RequestParam String race,
+            @RequestParam String url,
+            @RequestParam CharacterType characterType,
+            @RequestParam String home,
+            @RequestParam String occupation
+    ){
+        protagonistRepository.save(
+                new Protagonist(
+                        name,
+                        lastName,
+                        description,
+                        gender,
+                        race,
+                        url,
+                        characterType,
+                        home,
+                        occupation
+                )
+        );
         return new ResponseEntity<>("A new Protagonist has been Created", HttpStatus.OK);
     }
 
@@ -63,12 +84,14 @@ public class ProtagonistController {
             Protagonist newProtagonist = new Protagonist(
                     protagonist.getName(),
                     protagonist.getLastName(),
-                    protagonist.getGender(),
-                    protagonist.getJob(),
                     protagonist.getDescription(),
+                    protagonist.getGender(),
+                    protagonist.getImageUrl(),
                     protagonist.getRace(),
-                    //protagonist.getGameEdition(),
-                    protagonist.getImageUrl() );
+                    protagonist.getCharacterType(),
+                    protagonist.getHome(),
+                    protagonist.getOccupation()
+            );
                     protagonistRepository.save(newProtagonist
                     );
 
@@ -77,7 +100,7 @@ public class ProtagonistController {
                 boolean match = game.getAvailableProtagonistList().contains(newProtagonist.getName());
                 Set<GameProtagonist> setGameProtagonist = new HashSet<>();
                 if(match){
-                   GameProtagonist newGameProtagonist = new GameProtagonist(game, newProtagonist);
+                   GameProtagonist newGameProtagonist = new GameProtagonist(game, newProtagonist, "empty", "empty");
                    gameProtagonistRepository.save( newGameProtagonist );
                    setGameProtagonist.add(newGameProtagonist);
                    game.setGameProtagonists(setGameProtagonist);

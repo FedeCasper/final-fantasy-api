@@ -30,8 +30,6 @@ public class NpcController {
                 npcDto.getName(),
                 npcDto.getLastName(),
                 npcDto.getDescription(),
-                npcDto.getHome(),
-                npcDto.getOccupation(),
                 npcDto.getGender(),
                 npcDto.getRace(),
                 npcDto.getImageUrl(),

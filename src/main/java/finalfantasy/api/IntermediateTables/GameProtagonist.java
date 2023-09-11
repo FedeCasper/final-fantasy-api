@@ -21,6 +21,10 @@ public class GameProtagonist {
 
     private String name;
     private String gameEdition;
+    private String home;
+    private String occupation;
+    private String ultimate_limit;
+    private String ultimate_weapon;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Game game;
@@ -30,9 +34,13 @@ public class GameProtagonist {
     public GameProtagonist() {
     }
 
-    public GameProtagonist(Game game, Protagonist protagonist) {
+    public GameProtagonist(Game game, Protagonist protagonist, String ultimate_limit, String ultimate_weapon) {
         this.name = protagonist.getName();
         this.gameEdition = game.getTitle();
+        this.home = protagonist.getHome();
+        this.occupation = protagonist.getOccupation();
+        this.ultimate_limit = ultimate_limit;
+        this.ultimate_weapon = ultimate_weapon;
         this.game = game;
         this.protagonist = protagonist;
     }

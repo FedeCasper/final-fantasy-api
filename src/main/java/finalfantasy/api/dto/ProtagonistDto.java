@@ -13,11 +13,13 @@ public class ProtagonistDto {
     private String name;
     private String lastName;
     private String gender;
-    private String job;
+    //private String occupation;
     @Column(length = 1000)
     private String description;
     private String race;
     private String imageUrl;
+    //private String ultimate_limit;
+    //private String ultimate_weapon;
 
 
     public ProtagonistDto(){}
@@ -27,10 +29,12 @@ public class ProtagonistDto {
         this.name = protagonist.getName();
         this.lastName = protagonist.getLastName();
         this.gender = protagonist.getGender();
-        this.job = protagonist.getJob();
+        //this.occupation = protagonist.getOccupation();
         this.description = protagonist.getDescription();
         this.race = protagonist.getRace();
         this.imageUrl = protagonist.getImageUrl();
+        //this.ultimate_limit = protagonist.getUltimate_limit();
+        //this.ultimate_weapon = protagonist.getUltimate_weapon();
     }
 
     public void setId(Protagonist protagonist) {

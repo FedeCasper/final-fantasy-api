@@ -21,9 +21,6 @@ public class NpcDto {
     private String name;
     private String lastName;
     private String description;
-    // Biographical information
-    private String home;
-    private String occupation;
     // Physical description
     private String gender;
     private String race;
@@ -39,8 +36,6 @@ public class NpcDto {
         this.name = npc.getName();
         this.lastName = npc.getLastName();
         this.description = npc.getDescription();
-        this.home = npc.getHome();
-        this.occupation = npc.getOccupation();
         this.gender = npc.getGender();
         this.race = npc.getRace();
         this.imageUrl = npc.getImageUrl();
